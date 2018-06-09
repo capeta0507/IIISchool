@@ -1,0 +1,156 @@
+#myMenu {
+    width: 810px;
+    /* height: 600px; */
+    /* background-color: gray; */
+}
+
+/* Style the tab */
+
+.contain {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.tab {
+    overflow: hidden;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab button.active {
+    background-color: rgb(255, 255, 255);
+    border-top: 2px solid blue;
+    color: blue;
+    font-weight: bold;
+    /* border-top: 1px solid blue; */
+}
+
+/* Change background color of buttons on hover
+*/
+
+.tab button:hover {
+    background-color: rgb(255, 255, 255);
+    border-top: 2px solid blue;
+    color: blue;
+    font-weight: bold;
+}
+
+.myContent {
+    width: 800px;
+    /* height: 250px; */
+    border-bottom: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    display: none;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.myContent .myF1Title {
+    text-align: center;
+    color: darkslateblue;
+}
+
+.myContent .myF1Text {
+    /* background-color: darkkhaki; */
+    border: 1px solid darkkhaki;
+}
+
+.large p {
+    color: darkred;
+    /* text-align: right; */
+}
+
+#dBody .active {
+    display: block;
+}
+
+.myImg {
+    width: 400px;
+    /* height: 120px; */
+    float: left;
+    position: relative
+}
+
+.myImg img {
+    max-width: 100%;
+}
+
+.lab {
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0%);
+}
+
+.myLink {
+    width: 380px;
+    /* height: 120px; */
+    /* border: 1px solid red; */
+    float: right;
+    line-height: 24px;
+}
+
+h3,
+p {
+    margin: 5px;
+}
+
+p {
+    color: gray;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    text-decoration-line: underline;
+}
+
+.clear {
+    clear: both;
+}
+
+.large {
+    /* width: 100px; */
+    height: 20px;
+    background-color: aqua;
+}
+
+.largeTeam {
+    height: 20px;
+    background-color: black;
+    color: aquamarine;
+}
+
+.l_main {
+    /* border: 1px solid red; */
+    width: 145px;
+    float: left;
+    text-align: right;
+}
+
+.r_main {
+    /* border: 1px solid red; */
+    width: 650px;
+    float: right;
+}

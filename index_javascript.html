@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="index.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+<style>
+</style>
+
+<body>
+    <div class="top">
+        <a href="" class="logo">
+            III-Schools
+            <span>.com</span>
+
+        </a>
+        <p>資策會網頁前端工程師</p>
+    </div>
+    <header>
+        <ul>
+            <a href="index.html">
+                <li>HTML + CSS</li>
+            </a>
+
+            <a href="" class="active2">
+                <li>JAVASCRIPT</li>
+            </a>
+            <a href="">
+                <li>JQUERY</li>
+            </a>
+            <a href="">
+                <li>PHP + SQL</li>
+            </a>
+
+            <a href="">
+                <li>GIT</li>
+            </a>
+            <a href="about_me/about.html">
+                <li>關於我</li>
+            </a>
+        </ul>
+    </header>
+    <div class="content">
+        <div id="left_content">
+            <ul>
+                <li class="leftSide" onclick="showpage(this,'home')">JS Home</li>
+                <li class="leftSide" onclick="showpage(this,'intro')">JS Introduction</li>
+                <li class="leftSide" onclick="showpage(this,'yahooTab')">JS Yahoo Tab</li>
+                <li class="leftSide">JS AJAX</li>
+                <li class="leftSide">JS JSON</li>
+                <li class="leftSide">JS Heading</li>
+            </ul>
+        </div>
+        <div id="right_content">
+
+        </div>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        var tabs = document.getElementsByClassName("leftSide");
+        if (tabs.length <= 0) {} else {
+            showpage(tabs[0], 'home');
+            // jQuery left side bar li first item,加入 Active2 class name
+            var jQHome = $("#left_content li:first");
+            jQHome.addClass("active2");
+        }
+
+    });
+    var navTop = $("header").offset().top;
+    $(window).scroll(function () {
+        var scrollTop = $(this).scrollTop();
+        if (scrollTop >= navTop) {
+            $("header").addClass("fixed");
+        } else {
+            $("header").removeClass("fixed");
+        }
+    });
+
+    function showpage(mythis, pagename) {
+        var count = document.getElementById("right_content");
+        // alert(pagename);
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                count.innerHTML = this.responseText;
+            } else {
+                count.innerHTML = '<p>AJAX Error</p>';
+            }
+        }
+        xhr.open("GET", "javascript/" + pagename + ".html", true);
+        xhr.send();
+        // javascript className array 處理
+        // var tabs = document.getElementsByClassName("leftSide");
+        // for (var y = 0; y < tabs.length; y++) {
+        //     tabs[y].classList.remove("active2");
+
+        // }
+
+        // jQuery className 集合 處理方式
+        // var jtab = $(".leftSide");
+        // jtab.removeClass("active2");
+
+        // jQuery 選擇器 集合 處理方式
+        var jtabSel = $("#left_content li");
+        jtabSel.removeClass("active2");
+
+        //按鈕 本身 自加 Class Name : active
+        mythis.classList.add("active2");
+
+    }
+</script>
+
+</html>
