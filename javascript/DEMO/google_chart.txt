@@ -1,0 +1,32 @@
+引用google chart
+一ˋ啟動 圖種Chart Gallery:
+    1.Annotation Chart 註釋圖表
+    2.Pie Chart 圓餅圖
+    3.Area Chart 區域圖表
+    4.Bar Chart 條形圖
+    5.Bubble Chart 泡沫圖
+    6.Calendar Chart 日曆圖表
+    7.Column Chart 長條圖
+    8.Combo Chart 組合圖
+    9.Diff Charts 差異圖表
+    10.Donut Chart 甜甜圈圖表
+    11.Gantt Charts 甘特圖
+    12.Gauge Charts 量表圖
+    13.Histogram 直方圖
+    14.Intervals 間隔圖
+    15.Line Chart 折線圖
+    16.Map 地圖
+    17.Organization Chart 組織結構圖
+    18.Table 表格圖
+    19.Treemaps 樹狀圖
+    20.Trendlines 趨勢線
+    21.Word Trees 詞樹圖
+
+二ˋoption 選項:
+    1.width:寬度
+    2.height:高度
+    3.title標題命名
+    4.colors:顏色設定
+    5.is3D:3d設定
+    6.pointSize 標記大小(折線圖用)
+    7.backgroundColor 背景色
