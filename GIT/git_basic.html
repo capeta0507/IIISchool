@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Git基礎</title>
-</head>
-
-<body>
-
-</body>
-
-</html>
+<div class="contain">
+    <h1>Git 版本控管</h1>
+    <div class="w3-info">
+        <p>重要 Git 指令</p>
+        <ol>
+            <li>Git init : 該資料夾建立一個 Git Repository</li>
+            <li>Git add index.html:把index.html加入暫存區</li>
+            <li>Git add --all (Git add .):將該管理資料夾全部加入</li>
+            <li>Git status:查看 Git 最新狀態</li>
+            <li>Git commit -m "5/30更新":把暫存區的紀錄提交到歷史紀錄</li>
+            <li>Gitk:GUI工具</li>
+            <li>Git config --global core.editor notepad:Git commit 指令不帶 -m ，會指定editor</li>
+            <li>Git diff index.html:比對index.htm前後修改狀況</li>
+            <li>Git log --pretty=oneline 檢視git歷史紀錄LOG，單行顯示</li>
+            <li>Git reset --hard HEAD^:回復前一版本，HEAD^^就回到前前一個版本=HEAD~2</li>
+            <li>Git reset --hard 3628164:回復 commit id是“3628164...”的版本</li>
+            <li>Git reflog:紀錄你的每一次命令</li>
+            <li>Git show HEAD:顯示最新 Commit 的詳細記錄</li>
+            <li>git reset index.html:Git add index.html 尚未Commit 之前可以取消 Git add 狀態</li>
+            <li>Git checkout 3628164 -- index.html:針對 index.html這個文件，回復到commit id是“3628164...”的版本</li>
+            <li>.gitignore:本身是一個文字檔，輸入不想被版本控制的檔案名稱</li>
+        </ol>
+    </div>
+</div>
