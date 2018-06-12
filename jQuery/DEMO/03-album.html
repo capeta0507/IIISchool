@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>album</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="JS/jquery-3.3.1.min.js"></script>
+</head>
+<style>
+    ul {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    li {
+        /* width: 180px; */
+        margin: 5px;
+        list-style: none;
+        padding: 0;
+        border: 4px solid transparent;
+        box-shadow: 0 2px 5px black;
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+    }
+
+    li img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    figure {
+        height: 300px;
+    }
+
+    figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <figure class="text-center">
+            <img id="target_img" src="images/pic1.jpg" alt="">
+        </figure>
+        <ul id="clearfix">
+            <li>
+                <img src="images/pic1.jpg" alt="00">
+            </li>
+            <li>
+                <img src="images/pic2.jpg" alt="01">
+            </li>
+            <li>
+                <img src="images/pic3.jpg" alt="02">
+            </li>
+            <li>
+                <img src="images/pic4.jpg" alt="03">
+            </li>
+            <li>
+                <img src="images/pic5.jpg" alt="04">
+            </li>
+            <li>
+                <img src="images/slide2.jpeg" alt="05">
+            </li>
+
+        </ul>
+
+    </div>
+    <!-- container -->
+
+    <script>
+        $("li").eq(0).css("border", "4px solid yellow");
+        $("li").click(function () {
+            var img = $(this).find("img").attr("src");
+            console.log(img);
+            $("#target_img").attr("src", img);
+
+            $(this).siblings().css("border", "4px solid transparent")
+                .end().css("border", "4px solid yellow");
+            // $(this).css("border","4px solid yellow")
+            //     .siblings().css("border","4px solid transparent");
+        });
+    </script>
+</body>
+
+</html>
