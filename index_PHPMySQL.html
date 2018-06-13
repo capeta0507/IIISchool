@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JAVASCRIPT</title>
+    <title>PHP + MySQL</title>
 </head>
 <link rel="stylesheet" href="index.css">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -19,7 +19,6 @@
         <a href="" class="logo">
             III-Schools
             <span>.com</span>
-
         </a>
         <p>資策會網頁前端工程師</p>
     </div>
@@ -28,17 +27,15 @@
             <a href="index.html">
                 <li>HTML + CSS</li>
             </a>
-
-            <a href="" class="active2">
+            <a href="index_javascript.html">
                 <li>JAVASCRIPT</li>
             </a>
             <a href="index_jquery.html">
                 <li>JQUERY</li>
             </a>
-            <a href="index_PHPMySQL.html">
+            <a href="" class="active2">
                 <li>PHP + SQL</li>
             </a>
-
             <a href="index_git.html">
                 <li>GIT</li>
             </a>
@@ -49,16 +46,14 @@
     </header>
     <div class="content">
         <div id="left_content">
-            <div style="margin: 10px;font-size: 20px;">
-                <p>javascript Tutorial</p>
-            </div>
             <ul>
-                <li class="leftSide" onclick="showpage(this,'home')">JS Home</li>
-                <li class="leftSide" onclick="showpage(this,'intro')">JS Introduction</li>
-                <li class="leftSide" onclick="showpage(this,'yahooTab')">JS Yahoo Tab</li>
-                <li class="leftSide" onclick="showpage(this,'chart')">JS Google chart</li>
-                <li class="leftSide" onclick="showpage(this,'json')">JS JSON</li>
-                <li class="leftSide" onclick="showpage(this,'ajax')">JS AJAX</li>
+                <li class="leftSide" onclick="showpage(this,'home')">Home</li>
+                <li class="leftSide" onclick="showpage(this,'php_intro')">PHP Introduction</li>
+                <li class="leftSide" onclick="showpage(this,'php_basic')">PHP基礎</li>
+                <li class="leftSide" onclick="showpage(this,'mysql_intro')">MySQL Introduction</li>
+                <li class="leftSide" onclick="showpage(this,'mysql_basic')">SQL基礎</li>
+                <li class="leftSide" onclick="showpage(this,'case_1')">整合1</li>
+                <li class="leftSide" onclick="showpage(this,'case_2')">整合2</li>
             </ul>
         </div>
         <div id="right_content">
@@ -99,7 +94,7 @@
                 count.innerHTML = '<p>AJAX Error</p>';
             }
         }
-        xhr.open("GET", "javascript/" + pagename + ".html", true);
+        xhr.open("GET", "PHP_mysql/" + pagename + ".html", true);
         xhr.send();
         // javascript className array 處理
         // var tabs = document.getElementsByClassName("leftSide");
