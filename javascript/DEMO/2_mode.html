@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="JS/jquery-3.3.1.min.js"></script>
+</head>
+<style>
+    #box {
+        width: 500px;
+        height: 600px;
+        background-clip: gray;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav ul li {
+        border: 1px solid black;
+        margin: 20px;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        color: black;
+        display: block;
+        transition: all .5s;
+    }
+
+    nav ul li a:hover {
+        color: red;
+    }
+
+    .card {
+        width: 200px;
+        /* height: 150px; */
+        background: white;
+        margin: 30px auto;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 20px;
+        box-shadow: 0px 0px 10px black;
+    }
+
+    .box {
+        width: 120px;
+        height: 120px;
+    }
+
+    .circle {
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .box img {
+        max-width: 100%;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #aaa;
+    }
+
+    ul {
+        list-style: none;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #aaa;
+    }
+
+    p {
+        text-align: center;
+        color: #aaa;
+    }
+    li.active{
+        border:4px solid yellow;
+    }
+</style>
+
+
+<body>
+    <div id="box">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" onclick="showpage('Vettel');">Vettel</a>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage('Hamilton');">Hamilton</a>
+                </li>
+                <li>
+                    <a href="# " onclick="showpage('Ricciarido');">Ricciarido</a>
+                </li>
+
+            </ul>
+        </nav>
+        <div id="dBody">This is a book</div>
+    </div>
+    <script>
+
+        function showpage(pagename) {
+            // alert(pagename);
+            var count = document.getElementById('dBody');
+            // alert("A");
+            var xhr = new XMLHttpRequest();
+            // alert("B");
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    count.innerHTML = this.responseText;
+                }
+            }
+            xhr.open("GET", pagename + ".html", true);
+            // alert("C");
+            xhr.send();
+            // alert("D");
+        }
+        $("li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+    </script>
+</body>
+
+</html>
