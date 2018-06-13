@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex layout rwd</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #e7e7e7;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    /* a, a:link{
+        color: #3c599b;
+        text-decoration:none ;
+    } */
+
+    li {
+        list-style-type: none;
+    }
+
+    header {
+        background: white;
+
+    }
+
+    header .wrapper {
+        justify-content: space-between;
+        height: 80px;
+        align-items: center;
+    }
+
+    header a {
+        color: #3c599b;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    nav {
+        background: #3c599b;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        color: white;
+        display: block;
+    }
+
+    nav ul li a:link {
+        color: white;
+    }
+
+    nav ul li a:hover {
+        background: #1f3e85;
+    }
+
+    @media screen and (max-width:767px) {
+        nav ul li {
+            flex: 1;
+        }
+        nav ul li a {
+            padding: 10px 0;
+            text-align: center;
+        }
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .wrapper {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .logo {
+        /* width: 200px; */
+        height: 50px;
+    }
+
+    .user-setting {
+        align-self: flex-start;
+        margin: 20px;
+    }
+
+    .main {
+        margin: 20px auto;
+    }
+
+    aside {
+        /* flex: 1;   */
+        width: 160px;
+        color: black;
+    }
+
+    main {
+        flex-grow: 1;
+        margin: 0 10px;
+        background: white;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 1px 1px rgb(153, 153, 153) inset;
+    }
+
+    main p {
+        margin: 15px 0;
+        height: 500px;
+        line-height: 1.7;
+    }
+
+    .main_pic img {
+        width: 100%;
+        display: block;
+    }
+
+    .l_aside ul {
+        margin-top: 20px;
+    }
+
+    .l_aside li a {
+        color: black;
+        display: block;
+        padding: 10px;
+        border-left: 5px solid transparent;
+
+    }
+
+    .l_aside ul li a:hover,
+    .l_aside li.current a {
+        background: #dadada;
+        border-left: 5px solid #3c599b;
+        font-weight: bold;
+    }
+
+    .r_aside {
+        display: block;
+        align-self: flex-end;
+    }
+
+    .r_aside img {
+        width: 100px;
+    }
+
+    .end {
+        /* border:1px solid black; */
+        padding: 20px;
+        text-align: center;
+    }
+
+    @media screen and (max-width:767px) {
+        .main {
+            flex-wrap: wrap;
+        }
+        aside {
+            width: 100%;
+        }
+        aside figure {
+            max-width: 360px;
+            margin: 0 auto 20px;
+        }
+        .l_aside ul {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .l_aside ul li {
+            flex: 1;
+        }
+        .l_aside ul li a {
+            border-left: none;
+            /* border-bottom: 5px solid #3c599b; */
+            text-align: center;
+        }
+        .l_aside ul li a:hover,
+        .l_aside li.current a {
+            border-left: none;
+            border-bottom: 5px solid #3c599b;
+        }
+        .r_aside img {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <section class="wrapper flex">
+            <img class="logo" src="ias/facebook.png" alt="">
+            <div class="user-setting">
+                <a href="">Log In</a> |
+                <a href="">Sign Up</a>
+            </div>
+        </section>
+    </header>
+    <nav>
+        <ul class="wrapper">
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">Product</a>
+            </li>
+            <li>
+                <a href="">Story</a>
+            </li>
+            <li>
+                <a href="">Contact</a>
+            </li>
+            <li>
+                <a href="">About</a>
+            </li>
+        </ul>
+    </nav>
+    <section class="wrapper flex main">
+        <aside class="l_aside">
+            <figure class="main_pic">
+                <img src="img/logo.jpg" alt="">
+            </figure>
+            <ul>
+                <li class="current">
+                    <a href="">首頁</a>
+                </li>
+                <li>
+                    <a href="">關於</a>
+                </li>
+                <li>
+                    <a href="">相簿</a>
+                </li>
+                <li>
+                    <a href="">影片</a>
+                </li>
+            </ul>
+        </aside>
+        <main>
+            <h1>Flex Box</h1>
+            <time>2018/3/1 12:00</time>
+            <p>Just Uniform Map</p>
+        </main>
+        <aside class="r_aside">
+            <img src="img/jk.png" alt="">
+        </aside>
+    </section>
+    <footer class="end">
+        <div>copyright by facebook</div>
+    </footer>
+</body>
+
+</html>
