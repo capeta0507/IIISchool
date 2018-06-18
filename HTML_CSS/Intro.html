@@ -6,13 +6,12 @@
     <h1>What is HTML?</h1>
     <p>HTML is the standard markup language for creating Web pages.</p>
     <ul>
-        <li>HTML stands for Hyper Text Markup Language</li>
-        <li>HTML describes the structure of Web pages using markup</li>
-        <li>HTML elements are the building blocks of HTML pages</li>
-        <li>HTML elements are represented by tags</li>
-        <li>HTML tags label pieces of content such as "heading", "paragraph", "table", and so on</li>
-        <li>Browsers do not display the HTML tags, but use them to render the content of the page
-        </li>
+        <li>HTML文件由巢狀的HTML元素構成。它們用HTML標籤表示，包含於尖括號中，如 [P]</li>
+        <li>在一般情況下，一個元素由一對標籤表示：「開始標籤」[P]與「結束標籤」[/P]。元素如果含有文字內容，就被放置在這些標籤之間。</li>
+        <li>在開始與結束標籤之間也可以封裝另外的標籤，包括標籤與文字的混合。這些巢狀元素是父元素的子元素。</li>
+        <li>開始標籤也可包含標籤屬性。這些屬性有諸如標識文件區段、將樣式資訊繫結到文件演示和為一些如[img]等的標籤嵌入圖像、參考圖像來源等作用。</li>
+        <li>一些元素如換行符[br]，不允許嵌入任何內容，無論是文字或其他標籤。這些元素只需一個單一的空標籤（類似於一個開始標籤），無需結束標籤。</li>
+        <li>許多標籤是可選的，尤其是那些很常用的段落元素[p]的閉合端標籤。HTML瀏覽器或其他媒介可以從上下文識別出元素的閉合端以及由HTML標準所定義的結構規則。這些規則非常複雜，不是大多數HTML編碼人員可以完全理解的。</li>
     </ul>
 </div>
 <hr>
@@ -41,14 +40,3 @@
     </div>
 </div>
 <hr>
-<div class="contain">
-    <h1>HTML Examples</h1>
-    <p>At the end of the HTML tutorial, you can find more than 200 examples.</p>
-    <p>With our online editor, you can edit and test each example yourself.</p>
-</div>
-<hr>
-<div class="contain">
-    <h1>HTML Examples</h1>
-    <p>At W3Schools you will find complete references about tags, attributes, events, color names, entities, character-sets,
-        URL encoding, language codes, HTTP messages, and more.</p>
-</div>
