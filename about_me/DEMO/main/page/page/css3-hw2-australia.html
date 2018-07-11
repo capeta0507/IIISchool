@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Australian</title>
+    <script src="JS/jquery-3.3.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            /* background: rgb(212, 212, 212); */
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        header {
+            width: 100%;
+            height: 800px;
+            background: url(img/3917283.jpg) 0 0 no-repeat fixed;
+            color: white;
+            background-color: aqua;
+            display: flex;
+            position: relative;
+            /* text-align: center; */
+            background-size: cover;
+            background-position: center;
+            flex-direction: column;
+            cursor: default;
+        }
+        .head{
+            background-color: rgba(0, 0, 0, .6);
+            height: 100px;
+            width: 100%;    
+            z-index: 1;
+            position: fixed;
+        }
+        .title {
+            /* background-color: rgba(0, 0, 0, .6); */
+            height: 100px;
+            width: 80%;
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-around;
+            z-index: 1;
+            /* position: fixed; */
+        }
+        .menu {
+            width: 100%;
+            margin: 20px;
+            /* padding: 4em 4em 2em 4em;*/
+            border-radius: 4px;
+            display: flex;
+            margin: 10px auto;
+            text-align: center;
+            justify-content: flex-end;
+        
+        }
+
+        .menu ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .menu ul li {
+            /* padding: 5px; */
+            margin: 20px;
+            /* border: 1px solid red; */
+        }
+
+        .menu ul li a {
+            padding: 10px 20px;
+            color: white;
+            display: block;
+            transition: all .5s;        
+        }
+
+        .menu ul li a:hover {
+            color: red;
+        }
+        .transition{
+            transition: 0.4s;
+        }
+        .bar{
+            width: 36px;
+            height: 6px;
+            background: #666;
+            margin: 6px 0;
+            border-radius: 2px;
+            opacity: 0;
+            display: none;
+        }
+        .nav {
+            width: 80%;
+            margin: 20px;
+            padding: 4em 4em 2em 4em;
+            background-color: #ffffff;
+            border-radius: 4px;
+            display: flex;
+            margin: 0 auto;
+            text-align: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            color: black;
+        }
+        
+        .title img {
+            width: 200px;
+            padding-left: 10px;
+        }
+
+        .t-name {
+            /* border: 1px solid red; */
+            background-color: rgba(0, 0, 0, .6);
+            text-align: center;
+            text-shadow: 3px 3px 8px rgb(161, 161, 161);
+            position: relative;
+            margin-top: 300px;
+            padding: 100px;
+            font-size: 26px;
+            transition: all .5s;
+        }
+
+        .box2 {
+            width: 100%;
+            /* height: 800px; */
+            color: rgb(146, 146, 146);
+            display: flex;
+            position: relative;
+            background-color: rgb(199, 199, 199);
+            background-position: center;
+            flex-direction: column;
+            cursor: default;
+            /* padding: 4em 0 2em 0; */
+            text-align: center;
+        }
+
+        main {
+            width: 50%;
+            background: rgb(223, 223, 223);
+            /* margin: 10px; */
+            padding: 10px;
+            box-shadow: 3px 3px 8px rgb(161, 161, 161);
+            color: black;
+        }
+
+        aside {
+            width: 45%;
+            color: black;
+            /* margin: 10px; */
+            padding: 17px;
+            /* border: 1px solid red; */
+            background: rgb(214, 214, 214);
+            box-shadow: 3px 3px 8px rgb(161, 161, 161);
+        }
+
+        table,
+        tr,
+        td {
+            /* border: 1px solid red; */
+            background: rgb(228, 228, 228);
+        }
+
+        table {
+            margin: 10px auto;
+            width: 100%;
+        }
+
+        tr,
+        td {
+            padding: 10px;
+        }
+
+        table img {
+            width: 100%;
+        }
+
+        main img {
+            width: 100%;
+        }
+
+        aside img {
+            width: 50%;
+        }
+
+        aside div {
+            border: 1px solid red;
+            margin-top: 40px;
+            padding: 10px;
+            background: yellow;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+        .slide_wrap {
+            width: 1000px;
+            height: 650px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide_wrap img {
+            width: 100%;
+        }
+
+        .slide_wrap ul.slides {
+            height: 300px;
+            /* overflow: hidden; */
+            width: 3200px;
+            display: flex;
+            left: 0px;
+            position: absolute;
+            transition: all 1s;
+        }
+
+        .slides li {
+            width: 1000px;
+        }
+
+        .pages {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pages li {
+            width: 18px;
+            height: 18px;
+            border: 1px solid gray;
+            border-radius: 50%;
+            margin: 0 4px;
+        }
+
+        .pages li:hover {
+            background: white;
+        }
+
+        .arrow {
+            font-size: 32px;
+            color: black;
+            position: absolute;
+            top: 300px;
+            z-index: 10;
+            opacity: .6;
+            width: 40px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .arrow path {
+            fill: white;
+        }
+
+        .arrow_left {
+            left: 0px;
+            background-color: rgba(0, 0, 0); 
+        }
+
+        .arrow_right {
+            right: 0px;
+            background-color: rgba(0, 0, 0); 
+        }
+
+        .arrow:hover {
+            opacity: 1;
+            background: rgba(0, 0, 0, .5);
+        }
+
+        @media screen and (max-width:1200px) {
+            .title{
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                position: fixed;
+            }
+            .title img{
+                display: block;
+                position: absolute;
+                padding: 0;
+                left: 50%;            
+            }
+            .title ul {
+                display: initial;
+            }
+            /* .t-name {
+                display: none;
+            } */
+            main {
+                width: 100%;
+            }
+            aside {
+                width: 100%;
+            }
+            .menu{
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            padding: 20px 0 0 20px;
+            
+        }
+        .menu ul{
+            position: absolute;
+            margin-top:48px; 
+            left:0;
+            top:42px;            
+            width:100%;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .menu.active ul{
+            opacity: 1;
+            max-height: 500px;
+            background-color: rgba(0, 0, 0, .6); 
+        }
+        .menu ul li a{
+            display: block;
+            padding:20px 12px;
+            
+        }
+        .menu ul li a:hover{
+            background: rgb(255, 0, 0);
+            color: white;
+        }
+        .bar{
+            width: 36px;
+            height: 6px;
+            background: rgb(255, 255, 255);
+            margin: 6px 0;
+            border-radius: 2px;
+            display: block;
+            opacity: 1;
+        }
+        .active .bar1{
+            -webkit-transform: rotate(-45deg) translate(-9px, 7px) ;
+            transform: rotate(-45deg) translate(-9px, 7px) ;
+        }
+
+        .active .bar2{opacity: 0;}
+
+        .active .bar3{
+            -webkit-transform: rotate(45deg) translate(-9px, -8px) ;
+            transform: rotate(45deg) translate(-9px, -8px) ;
+        }
+        .nav{
+            padding: 0;
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <div class="title">
+                <a href="">
+                    <img src="img/formula_1_black_background_logo1.gif">
+                </a>
+                <div class="menu transition" >
+                    <div class="bar bar1 transition"></div>
+                    <div class="bar bar2 transition"></div>
+                    <div class="bar bar3 transition"></div>                
+                    <ul class="transition">
+                        <a href=""></a>
+                        <li>
+                            <a href="../css3-hw2-latest.html" >LATEST</a>
+                        </li>
+                        <li>
+                            <a href="../css3-hw2-champion.html">CHAMPIONSHIP</a>
+                        </li>
+                        <li>
+                            <a href="../css3-hw2-result.html">RESULT</a>
+                        </li>
+                        <li>
+                            <a href="">VIDEO</a>
+                        </li>                    
+                        <li>
+                            <a href=".../css3-hw2.html">HOME</a>
+                        </li>
+                    </ul>            
+                </div>
+            </div>
+        </div>
+        <div class="t-name">
+            <h1>Australian Grand Prix</h1>
+        </div>
+    </header>
+    <section class="box2">
+        <div class="nav">
+            <main>
+
+                <img src="img/1521716601701.png" alt="">
+            </main>
+            <aside>
+                <img src="img/Australia.png" alt="">                
+                <table>
+                    <tr>
+                        <td>CIRCUIT</td>
+                        <td>MELBOURNE</td>
+                    </tr>
+                    <tr>
+                        <td>FIRST GP</td>
+                        <td>1996</td>
+                    </tr>
+                    <tr>
+                        <td>Laps</td>
+                        <td>58</td>
+                    </tr>
+                    <tr>
+                        <td>CIRCUIT LENGTH</td>
+                        <td>5.303km</td>
+                    </tr>
+                    <tr>
+                        <td>RACE DISTANCE</td>
+                        <td>307.574km</td>
+                    </tr>
+                    <tr>
+                        <td>LAP
+                            RECORD</td>
+                        <td>1:24.125</td>
+                    </tr>
+                    <tr>
+                        <td>2018 WINNER</td>
+                        <td>S.Vettel</td>
+                    </tr>                    
+                    <tr>
+                        <td>DATE OF RACE</td>
+                        <td>25 Mar 2018</td>
+                    </tr>
+                    <tr>
+                        <td>DRS</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </aside>
+            <h1>Melbourne</h1>
+            <p style="padding:10px 0;">When Formula One came to Australia in 1985 it set up home in Adelaide. However, ex-racer-turned-entrepreneur Bob Jane wanted a race in Melbourne. He created a huge 'thunderdome' and invented the AUSCAR series, bringing NASCAR action to Australia.
+
+                    The desire to have a race in Melbourne did not wane. Despite the popular end of season slot for the Adelaide race, pressure was growing from the Melbourne motor sport community, and in 1992 Jeff Kennett was elected the new premier of the State of Victoria. He immediately set about improving Melbourne's profile. First on his list was the Australian Grand Prix. 
+                    
+                    An agreement was reached with Formula One in 1993, but the contract with Adelaide did not expire until 1995, so Kennett had plenty of time to prepare.
+                    
+                    A track was developed in Melbourne's beautiful Albert Park, part of it using closed-off public roads, and in 1996 the city held the first round of the world championship.
+                    
+                    Since then the race has become very popular with drivers and fans alike, and the party atmosphere of Melbourne keeps them coming back year after year.</p>
+            <div class="slide_wrap">
+                <ul class="slides">
+                    <!-- <li>
+                        <img src="img/1421341011581.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="img/1424967107918.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="img/1421341010275.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="img/1421340979373.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="img/1421340978386.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="img/1421340976564.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="img/1424967331954.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="img/1424970199869.jpg" alt="">
+                    </li> -->
+                </ul>
+                <ul class="pages">
+                    <!-- <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li> -->
+                </ul>
+                <a class="arrow arrow_left" id="left">
+                    <i class="fas fa-angle-left"></i>
+                </a>
+                <a class="arrow arrow_right" id="right">
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var slides = ["1423497795612.jpg","1425313851738.jpg","1423497795319.jpg","1425313851716.jpg","1423497798683.jpg","1521977192305.jpg","1522060593850.jpg"];
+        var slideWidth = $(".slide_wrap").width();
+        var slideNum=0;
+        // console.log(slides[0]);
+        //var sildeCount=$(".slides li").length;
+        var slideCount = slides.length;
+        console.log(slideWidth);
+
+        for($i=0; $i< slideCount;$i++){
+            console.log(slides[$i])
+            $(".slides").append("<li><img src='img/"+ slides[$i] + "' alt=''></li>")
+            $(".pages").append("<li></li>");
+        }
+
+        // $(".slide li").width(slideWidth);
+        // $(".slide_wrap ul.slides").width(slideWidth*slideCount);
+        setWidth();
+
+        $(".pages li").eq(0).css("background","red");
+        $(".pages").on("mouseenter","li",function(){
+            slideNum=$(this).index();
+            moveSlide(slideNum);
+        });
+        $("#left").click(function(){
+            slideNum--;
+            if(slideNum<0)slideNum=slideCount-1;
+            moveSlide(slideNum);
+        });
+        $("#right").click(function(){
+            slideNum++;
+            if(slideNum>=slideCount)slideNum=0;
+            moveSlide(slideNum);
+        });
+        $(window).resize(function(){
+            setWidth();
+        });
+        function setWidth(){
+            slideWidth = $(".slide_wrap").width();
+            $(".slide li").width(slideWidth);
+            $(".slide_wrap ul.slides").width(slideWidth*slideCount);
+            moveSlide(slideNum);
+        };
+        function moveSlide(slideNum){
+             var slideMove = 0-slideNum*slideWidth;
+            $(".pages li").eq(slideNum).css("background","red")
+                .siblings().css("background","transparent");
+            $(".slides").css("left",slideMove);
+        }
+
+        //---------menu--------------
+        $(".menu").click(function(){
+            event.stopPropagation();
+            $(this).toggleClass("active");
+        });
+        $(window).click(function(){
+            $(".menu").removeClass("active");
+        });
+    </script>
+</body>
+
+</html>

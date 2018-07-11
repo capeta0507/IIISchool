@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>championship</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        /* background: rgb(212, 212, 212); */
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    header {
+        width: 100%;
+        height: 800px;
+        background: url(img/3917283.jpg) 0 0 no-repeat fixed;
+        color: white;
+        background-color: aqua;
+        display: flex;
+        position: relative;
+        /* text-align: center; */
+        background-size: cover;
+        background-position: center;
+        flex-direction: column;
+        cursor: default;        
+    }
+    .head{
+        background-color: rgba(0, 0, 0, .6);
+        height: 100px;
+        width: 100%;    
+        z-index: 1;
+        position: fixed;
+    }
+    .title {
+        /* background-color: rgba(0, 0, 0, .6); */
+        height: 100px;
+        width: 80%;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-around;
+        z-index: 1;
+        /* position: fixed; */
+    }
+
+    .menu {
+        width: 100%;
+        margin: 20px;
+        /* padding: 4em 4em 2em 4em;*/
+        border-radius: 4px;
+        display: flex;
+        margin: 10px auto;
+        text-align: center;
+        justify-content: flex-end;
+        
+    }
+
+    .menu ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .menu ul li {
+        /* padding: 5px; */
+        margin: 20px;
+        /* border: 1px solid red; */
+    }
+
+    .menu ul li a {
+        padding: 10px 20px;
+        color: white;
+        display: block;
+        transition: all .5s;        
+    }
+
+    .menu ul li a:hover {
+        color: red;
+    }
+    .transition{
+        transition: 0.4s;
+    }
+    .bar{
+        width: 36px;
+        height: 6px;
+        background: #666;
+        margin: 6px 0;
+        border-radius: 2px;
+        opacity: 0;
+        display: none;
+    }
+    .title img {
+        width: 200px;
+        padding-left: 10px;
+    }
+
+    .t-name {
+        /* border: 1px solid red; */
+        background-color: rgba(0, 0, 0, .6);
+        text-align: center;
+        text-shadow: 3px 3px 8px rgb(161, 161, 161);
+        position: relative;
+        margin-top: 300px;
+        padding: 100px;
+        font-size: 26px;
+        transition: all .5s;
+    }
+    .box2 {
+        width: 100%;
+        /* height: 800px; */
+        color: rgb(146, 146, 146);
+        display: flex;
+        position: relative;
+        background-color: rgb(199, 199, 199);
+        background-position: center;
+        flex-direction: column;
+        cursor: default;
+        /* padding: 4em 0 2em 0; */
+        text-align: center;
+    }
+    main {
+        width: 50%;
+        background: rgb(223, 223, 223);
+        /* margin: 10px; */
+        padding: 10px;
+        box-shadow: 3px 3px 8px rgb(161, 161, 161);
+        color: black;
+    }
+    aside {
+        width: 20%;
+        color: black;
+        /* margin: 10px; */
+        padding: 17px;
+        /* border: 1px solid red; */
+        background: rgb(214, 214, 214);
+        box-shadow: 3px 3px 8px rgb(161, 161, 161);
+    }
+    main img{
+        width: 100%;
+    }
+    aside img{
+        width: 100%;
+    }
+    aside div{
+        border: 1px solid red;
+        margin-top: 40px;
+        padding: 10px;
+        background: yellow;
+        font-size: 20px;
+        border-radius: 5px;        
+    }
+    @media screen and (max-width:1200px){
+        .head{       
+            z-index: 1;
+            position: fixed;
+        }
+        .title{
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            position: fixed;
+        }
+        .title img{
+            display: block;
+            position: absolute;
+            padding: 0;
+            left: 50%;            
+        }
+        .title ul{
+            display: initial;
+        }
+        /* .t-name{
+            margin-top: 300px;
+        } */
+        main{
+            width: 100%;
+        }
+        aside{
+            width: 50%;
+        }
+        .menu{
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            padding: 20px 0 0 20px;
+            
+        }
+        .menu ul{
+            position: absolute;
+            margin-top:48px; 
+            left:0;
+            top:42px;            
+            width:100%;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .menu.active ul{
+            opacity: 1;
+            max-height: 500px;
+            background-color: rgba(0, 0, 0, .6); 
+        }
+        .menu ul li a{
+            display: block;
+            padding:20px 12px;
+            
+        }
+        .menu ul li a:hover{
+            background: rgb(255, 0, 0);
+            color: white;
+        }
+        .bar{
+            width: 36px;
+            height: 6px;
+            background: rgb(255, 255, 255);
+            margin: 6px 0;
+            border-radius: 2px;
+            display: block;
+            opacity: 1;
+        }
+        .active .bar1{
+            -webkit-transform: rotate(-45deg) translate(-9px, 7px) ;
+            transform: rotate(-45deg) translate(-9px, 7px) ;
+        }
+
+        .active .bar2{opacity: 0;}
+
+        .active .bar3{
+            -webkit-transform: rotate(45deg) translate(-9px, -8px) ;
+            transform: rotate(45deg) translate(-9px, -8px) ;
+        }
+        
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <div class="title">
+                <a href="">
+                    <img src="img/formula_1_black_background_logo1.gif">
+                </a>
+                <div class="menu transition" >
+                    <div class="bar bar1 transition"></div>
+                    <div class="bar bar2 transition"></div>
+                    <div class="bar bar3 transition"></div>                
+                    <ul class="transition">
+                        <li>
+                            <a href="./css3-hw2-latest.html">LATEST</a>
+                        </li>
+                        <li>
+                            <a href="./css3-hw2-champion.html">CHAMPIONSHIP</a>
+                        </li>
+                        <li>
+                            <a href="./css3-hw2-result.html">RESULT</a>
+                        </li>
+                        <li>
+                            <a href="#video">VIDEO</a>
+                        </li>
+                        <li>
+                            <a href="../css3-hw2.html">HOME</a>
+                        </li>                        
+                    </ul>        
+                </div>
+            </div>
+        </div>
+        <div class="t-name">            
+            <h1>Teams and Drivers</h1>
+        </div>
+    </header>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script>
+    $(".menu").click(function(){
+      event.stopPropagation();
+      $(this).toggleClass("active");
+    });
+    $(window).click(function(){
+      $(".menu").removeClass("active");
+    });    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scroll</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif
+    }
+
+    .content {
+        height: 900px;
+        background-color: silver;
+    }
+
+    .about {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 100px 0;
+        transform-style: preserve-3d;
+        transform: perspective(800px);
+
+    }
+
+    .about h2 {
+        text-transform: uppercase;
+        font-size: 50px;
+        font-weight: 400;
+    }
+
+    .about h2,
+    .about p {
+        transition: all .8s ease;
+    }
+
+    .about.hidden h2 {
+        opacity: 0;
+        transform: translate3d(0, 0, 400px) rotateY(-40deg);
+    }
+
+    .about.hidden p {
+        opacity: 0;
+        transform: translate3d(0, 0, 400px) rotateY(40deg);
+    }
+</style>
+
+<body>
+    <div class="content"></div>
+    <div class="about hidden">
+        <h2>This is heading</h2>
+        <p>Formula One (also Formula 1 or F1) is the highest class of single-seater auto racing sanctioned by the Fédération
+            Internationale de l'Automobile (FIA) and owned by the Formula One Group. The FIA Formula One World Championship
+            has been one of the premier forms of racing around the world since its inaugural season in 1950. The "formula"
+            in the name refers to the set of rules to which all participants' cars must conform.[2] A Formula One season
+            consists of a series of races, known as Grands Prix (French for "grand prizes" or "great prizes"), which are
+            held worldwide on purpose-built circuits and public roads.
+        </p>
+    </div>
+    <div class="content"></div>
+
+
+
+</body>
+<script>
+    (function () {
+        var aboutEl = $("div.about"),
+            aboutEloffset = aboutEl.offset().top / 2,
+            documentEl = $(document);
+
+        documentEl.on("scroll", function () {
+            if (documentEl.scrollTop() > aboutEloffset && aboutEl.hasClass("hidden")) {
+                aboutEl.removeClass("hidden");
+            }
+        })
+    })();
+
+</script>
+
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scroll</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<style>
+    header {
+        width: 100%;
+        height: 900px;
+        background-color: aqua;
+    }
+
+    .box {
+        width: 100%;
+        height: 50px;
+        background-color: pink;
+    }
+
+    .contain,
+    .contain2 {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 50px;
+        display: flex;
+    }
+
+    .transition {
+        transition: all .5s;
+    }
+
+    .vettel {
+        width: 25%;
+        opacity: 0;
+        transform: translate(20px);
+    }
+
+    .raikkonen {
+        width: 25%;
+        opacity: 0;
+        transform: translate(400px);
+    }
+
+    .hamilton {
+        width: 25%;
+        opacity: 0;
+        transform: translate(20px);
+    }
+
+    .bottas {
+        width: 25%;
+        opacity: 0;
+        transform: translate(400px);
+    }
+
+    .ferrari {
+        text-align: center;
+        width: 25%;
+        opacity: 1;
+        transform: translate(240px, 100px);
+    }
+
+    .mercedes {
+        text-align: center;
+        width: 25%;
+        opacity: 1;
+        transform: translate(240px, 100px);
+    }
+
+    .ferrari img {
+        width: 60%;
+    }
+
+    .mercedes img {
+        width: 60%;
+    }
+
+    img {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <header></header>
+    <div class="contain">
+        <div class="transition vettel">
+            <img class="" src="img/1490267969275.jpg" alt="">
+        </div>
+
+        <div class="transition ferrari">
+            <img src="img/1521797345005.jpg" alt="">
+            <h1>Scuderia Ferrari</h1>
+            <h1>SF71H</h1>
+        </div>
+        <div class="transition raikkonen">
+            <img class="" src="img/1490268227661.jpg" alt="">
+        </div>
+
+    </div>
+    <div class="contain2">
+        <div class="transition hamilton">
+            <img class="" src="img/1490267849284.jpg" alt="">
+        </div>
+
+        <div class="transition mercedes">
+            <img src="img/1486740144183.jpg" alt="">
+            <h1>Mercedes</h1>
+            <h1>W09</h1>
+        </div>
+        <div class="transition bottas">
+            <img class="" src="img/1490267884485.jpg" alt="">
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    $(document).ready(function () {
+        var containEl = $("div.contain"),
+            containEl2 = $("div.contain2"),
+            containEloffset = containEl.offset().top / 2,
+            containEloffset2 = containEl2.offset().top / 2;
+        $(window).scroll(function () {
+            var scrollVal = $(this).scrollTop();
+            console.log(scrollVal);
+            if ($(document).scrollTop() > containEloffset) {
+                $(".vettel").css({ "opacity": "1", "transform": "translate(200px)" })
+                $(".raikkonen").css({ "opacity": "1", "transform": "translate(250px)" })
+                $(".ferrari").css({ "opacity": "1", "transform": "translate(240px,0px)" })
+
+            } else {
+                $(".vettel").css({ "opacity": "0", "transform": "translate(20px)" })
+                $(".raikkonen").css({ "opacity": "0", "transform": "translate(400px)" })
+                $(".ferrari").css({ "opacity": "0", "transform": "translate(240px, 50px)" })
+            }
+            if ($(document).scrollTop() > containEloffset2) {
+                $(".hamilton").css({ "opacity": "1", "transform": "translate(200px)" })
+                $(".bottas").css({ "opacity": "1", "transform": "translate(250px)" })
+                $(".mercedes").css({ "opacity": "1", "transform": "translate(240px,0px)" })
+
+            } else {
+                $(".hamilton").css({ "opacity": "0", "transform": "translate(20px)" })
+                $(".bottas").css({ "opacity": "0", "transform": "translate(400px)" })
+                $(".mercedes").css({ "opacity": "0", "transform": "translate(240px, 50px)" })
+            }
+
+        })
+    })
+
+</script>
+
+
+</html>

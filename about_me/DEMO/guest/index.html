@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>猜 A_B</title>
+    <!-- 網頁圖示 Android桌面圖示 -->
+    <link href="./trophy_1.png" rel="shortcut icon">
+    <!-- iOS iPhone 桌面圖示 -->
+    <link rel="apple-touch-icon-precomposed" href="./trophy_1.png">
+    <!-- 起始畫面 -->
+    <link rel="apple-touch-startup-image" href="./sao_md.jpg">
+    <!--  Full screen 關閉 iOS 網頁 URL + 狀態列 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        text-align: center;
+        width: 800px;
+    }
+
+    .border {
+        padding: 10px;
+
+    }
+
+    img {
+        width: 50px;
+    }
+
+    #Asn {
+        display: flex;
+    }
+
+    .gameOver {
+        background-color: darkred;
+        color: white;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    @media screen and (max-width: 587px) {
+        .container {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>猜 AB</h1>
+        <div class="row">
+            <div class="col-4 col-sm-4 border border-primary">
+                <img src="computer.png" alt="">
+            </div>
+            <div class="col-8 col-sm-8 d-flex border border-primary">
+                <input id="comp1" style="font-size:24px" type="password" class="form-control computer" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                    value="5" readonly="readonly">
+                <input id="comp2" style="font-size:24px" type="password" class="form-control computer" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                    value="2" readonly="readonly">
+                <input id="comp3" style="font-size:24px" type="password" class="form-control computer" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                    value="1" readonly="readonly">
+                <input id="comp4" style="font-size:24px" type="password" class="form-control computer" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                    value="8" readonly="readonly">
+            </div>
+
+            <div class="col-4 col-sm-4 border border-primary">
+                <img src="people.png" alt="">
+            </div>
+            <div class="col-8 col-sm-8 d-flex border border-primary getpeople">
+                <input id="peop1" style="font-size:24px" type="number" class="form-control people" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                    value="" maxlength="1">
+                <input id="peop2" style="font-size:24px" type="number" class="form-control people" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                    value="" maxlength="1">
+                <input id="peop3" style="font-size:24px" type="number" class="form-control people" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                    value="" maxlength="1">
+                <input id="peop4" style="font-size:24px" type="number" class="form-control people" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                    value="" maxlength="1">
+            </div>
+
+            <div class="col-4 col-sm-4 border border-primary">
+                <button id="myStart" type="button" class="btn btn-success btn-block">Start</button>
+            </div>
+            <div class="col-4 col-sm-4 border border-primary">
+                <button id="myGuest" type="button" class="btn btn-primary btn-block">Guest</button>
+            </div>
+            <div class="col-4 col-sm-4 border border-primary">
+                <button id="myGiveUP" type="button" class="btn btn-danger btn-block">Give UP</button>
+            </div>
+        </div>
+        <div id="ansBody" class="row">
+            <!-- <div class="col-2 border">
+                <h1>1</h1>
+            </div>
+            <div class="col-5 border ">
+                <h1>5213</h1>
+            </div>
+            <div class="col-5 border ">
+                <h1>0A0B</h1>
+            </div> -->
+        </div>
+    </div>
+    <script>
+        var ansCount = 0;
+        var myAnsStr = "";
+
+        // 填完數字後自動跳下一格
+        $(".getpeople input[type='number']").keyup(function () {
+            $(this).next().focus();
+        })
+        $(document).ready(function () {
+            // console.log( "ready!" );
+            // 猜題按鈕
+            $("#myGuest").click(function () {
+                // Johnny - 小學版
+                // if (guest_check() == false) {
+                //     return false;
+                // }
+                // davidtpe - 職業版
+                if (guest_check_davidtpe() == false) {
+                    return false;
+                }
+                guest_Array();
+                $(".people").val("");
+                // $(".ansG").html(myPeop);
+
+            });
+            // 放棄按鈕
+            $("#myGiveUP").click(function () {
+                $("#myGuest").attr("disabled", true);
+                $("#myGiveUP").attr("disabled", true);
+                $("input").attr("type", "text");
+            });
+            // 開始按鈕
+            $("#myStart").click(function () {
+                $("#myGuest").attr("disabled", false);
+                $("#myGiveUP").attr("disabled", false);
+                $(".computer").attr("type", "password");
+                $("#ansBody").html(null);
+                computerNum();
+                // document.location.reload(true);
+
+            })
+            computerNum();
+        });
+
+        function guest_Array() {
+            // 取得電腦出的數值
+            var myComp = [$("#comp1").val(), $("#comp2").val(), $("#comp3").val(), $("#comp4").val()];
+            // 取得玩家的數值
+            var myPeop = [$("#peop1").val(), $("#peop2").val(), $("#peop3").val(), $("#peop4").val()];
+            // 將myA為A的答案，myB為B的答案
+            var myA = 0;
+            var myB = 0;
+            for (var x = 0; x < myPeop.length; x++) {
+                // console.log("myPeop:" + x + ":" + myPeop[x]);
+                // 判斷myPeop與myComp位置的數值是否相同
+                for (var y = 0; y < myComp.length; y++) {
+                    // console.log("-->myComp:" + y + ":" + myComp[y]);
+                    // 若myComp第y個與myPeop第x個內容相同時myA就++，若沒有時myA就++
+                    if (myPeop[x] == myComp[y]) {
+                        if (x == y) {
+                            myA++;
+                            // console.log("A");
+                        } else {
+                            myB++;
+                            // console.log("B");
+                        }
+                    }
+                }
+            }
+
+            // 將答案呈現在html上
+            var ansGuset = myPeop[0] + myPeop[1] + myPeop[2] + myPeop[3];
+            console.log("ansG:" + ansGuset);
+            console.log(myA + "A" + myB + "B");
+
+            // 答題次數
+            ansCount++;
+            // 答案呈現方式
+            // if (myA != 4) {
+            //     myAnsStr += '<div class="col-2 border">';
+            //     myAnsStr += '<h1>' + ansCount + '</h1>';
+            //     myAnsStr += '</div>';
+            //     myAnsStr += '<div class="col-5 border">';
+            //     myAnsStr += '<h1>' + ansGuset + '</h1>';
+            //     myAnsStr += '</div>';
+            //     myAnsStr += '<div class="col-5 border">';
+            //     myAnsStr += '<h1 class="ansH">' + myA + 'A' + myB + 'B' + '</h1>';
+            //     myAnsStr += '</div>';
+            // } else {
+            //     myAnsStr += '<div class="col-2 border gameOver">';
+            //     myAnsStr += '<h1>' + ansCount + '</h1>';
+            //     myAnsStr += '</div>';
+            //     myAnsStr += '<div class="col-5 border gameOver">';
+            //     myAnsStr += '<h1>' + ansGuset + '</h1>';
+            //     myAnsStr += '</div>';
+            //     myAnsStr += '<div class="col-5 border gameOver">';
+            //     myAnsStr += '<h1 class="ansH">' + myA + 'A' + myB + 'B' + '</h1>';
+            //     myAnsStr += '</div>';
+            // }
+
+            // $("#ansBody").html(myAnsStr);
+
+            var col01 = document.createElement("div");
+            col01.classList.add("col-2");
+            col01.classList.add("border");
+            // col01.innerHTML = "<h1>" + ansCount + "</h1>";
+            var col01Num = document.createElement("h1");
+            col01Num.innerText = ansCount;
+            col01.appendChild(col01Num);
+
+            var col02 = document.createElement("div");
+            col02.classList.add("col-5");
+            col02.classList.add("border");
+            // col02.innerHTML = "<h1>" + ansGuset + "</h1>";
+            var col02Ans = document.createElement("h1");
+            col02Ans.innerText = ansGuset;
+            col02.appendChild(col02Ans);
+
+            var col03 = document.createElement("div");
+            col03.classList.add("col-5");
+            col03.classList.add("border");
+            // col03.innerHTML = '<h1 class="ansH">' + myA + 'A' + myB + 'B' + '</h1>';
+            var col03Rel = document.createElement("h1");
+            col03Rel.innerHTML = myA + 'A' + myB + 'B';
+            col03.appendChild(col03Rel);
+
+            document.getElementById("ansBody").appendChild(col01);
+            document.getElementById("ansBody").appendChild(col02);
+            document.getElementById("ansBody").appendChild(col03);
+
+            if (myA == 4) {
+                col01.classList.add("gameOver");
+                col02.classList.add("gameOver");
+                col03.classList.add("gameOver");
+            }
+            // 若答案正確時
+            if (myA == "4") {
+                // alert("congraduction");
+                $("#myGuest").attr("disabled", true);
+                $("input").attr("type", "text");
+            }
+        }
+
+        // 電腦隨機亂數，numRepeat判斷數值是否有重複
+        function computerNum() {
+            var minNum = 0;
+            var maxNum = 9;
+            var myRan = 0;
+            var myComp = [0, 0, 0, 0];
+            var numRepeat = false;
+            var n = 0;
+            for (var i = 0; i <= 3; i++) {
+                // console.log("i=" + i);
+                numRepeat = false;
+                do {
+                    myRan = Math.random();
+                    n = Math.floor(myRan * (maxNum - minNum + 1)) + minNum;
+                    console.log(i + "->" + myRan + ":" + n);
+                    myComp[i] = n;
+                    numRepeat = false;
+                    for (var j = 0; j < i; j++) {
+                        console.log(myComp[j] + "<-" + j + "->" + n);
+                        if (myComp[j] == n) {
+                            numRepeat = true;
+                            console.log("數字重複 ..." + n);
+                        }
+                    }
+                }
+                while (numRepeat == true);
+            }
+            console.log(myComp);
+            $("#comp1").val(myComp[0]);
+            $("#comp2").val(myComp[1]);
+            $("#comp3").val(myComp[2]);
+            $("#comp4").val(myComp[3]);
+        }
+
+        // 判斷input是否有空白，數字是否有重複
+        function guest_check_davidtpe() {
+            pp = document.getElementsByClassName("people");
+            // console.log("people Array length:" + pp.length);
+            for (var x = 0; x < pp.length; x++) {
+                // console.log("PP" + x + ":" + pp[x].value + " Length:" + pp[x].value.length);
+                if (pp[x].value.length == 0) {
+                    alert("第" + (x + 1) + "個為空白...禁止");
+                    return false
+                }
+                for (y = 0; y < x; y++) {
+                    if (pp[x].value == pp[y].value) {
+                        alert("第" + (x + 1) + "個數字重複...禁止");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        // 判斷input是否有空白，數字是否有重複
+        function guest_check() {
+            var p1 = $("#peop1").val();
+            var p2 = $("#peop2").val();
+            var p3 = $("#peop3").val();
+            var p4 = $("#peop4").val();
+
+            // 四個解題只要有一個 空白 就拒絕解答
+            // or = ||;
+            // if ($("#peop1").val().length == 0 || $("#peop2").val().length == 0 || $("#peop3").val().length == 0 || $("#peop4").val().length == 0) {
+            //     alert('不能為空白');
+            //     return false;
+            // }
+            // 先預設判斷input不是空白
+            var checkYN = true;
+            // 由一個一個來做if判斷
+            if (p1.length == 0) {
+                // alert('第1格不能為空白');
+                // return false;
+                checkYN = false;
+            }
+            if (p2.length == 0) {
+                // alert('第2格不能為空白');
+                // return false;
+                checkYN = false;
+            }
+            if (p3.length == 0) {
+                // alert('第3格不能為空白');
+                // return false;
+                checkYN = false;
+            }
+            if (p4.length == 0) {
+                // alert('第4格不能為空白');
+                // return false;
+                checkYN = false;
+            }
+            if (checkYN == false) {
+                alert("有空白...不做解答 ^_^");
+                return false;
+            }
+            // 數字不能重複
+            if (p1 == p2 || p1 == p3 || p1 == p4 || p2 == p3 || p2 == p4 || p3 == p4) {
+                alert("數字不能重複");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>championship</title>
+    <script src="JS/jquery-3.3.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            /* background: rgb(212, 212, 212); */
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        header {
+            width: 100%;
+            height: 800px;
+            background: url(img/3917283.jpg) 0 0 no-repeat fixed;
+            color: white;
+            background-color: aqua;
+            display: flex;
+            position: relative;
+            /* text-align: center; */
+            background-size: cover;
+            background-position: center;
+            flex-direction: column;
+            cursor: default;
+        }
+        .head{
+            background-color: rgba(0, 0, 0, .6);
+            height: 100px;
+            width: 100%;    
+            z-index: 1;
+            position: fixed;
+        }
+        .title {            
+            height: 100px;
+            width: 80%;
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-around;
+        }
+
+        .menu {
+            width: 100%;
+            margin: 20px;
+            /* padding: 4em 4em 2em 4em;*/
+            border-radius: 4px;
+            display: flex;
+            margin: 10px auto;
+            text-align: center;
+            justify-content: flex-end;
+            
+        }
+    
+        .menu ul {
+            display: flex;
+            justify-content: space-around;
+        }
+    
+        .menu ul li {
+            /* padding: 5px; */
+            margin: 20px;
+            /* border: 1px solid red; */
+        }
+    
+        .menu ul li a {
+            padding: 10px 20px;
+            color: white;
+            display: block;
+            transition: all .5s;        
+        }
+    
+        .menu ul li a:hover,.menu li.current a {
+            color: red;
+        }
+        .transition{
+            transition: 0.4s;
+        }
+        .bar{
+            width: 36px;
+            height: 6px;
+            background: #666;
+            margin: 6px 0;
+            border-radius: 2px;
+            opacity: 0;
+            display: none;
+        }
+
+        .title img {
+            width: 200px;
+            padding-left: 10px;
+        }
+
+        .t-name {
+            /* border: 1px solid red; */
+            background-color: rgba(0, 0, 0, .6);
+            text-align: center;
+            text-shadow: 3px 3px 8px rgb(161, 161, 161);
+            position: relative;
+            margin-top: 300px;
+            padding: 100px;
+            font-size: 26px;
+            transition: all .5s;
+        }
+        .nav {
+            width: 80%;
+            margin: 20px;
+            padding: 4em 4em 2em 4em;
+            background-color: #ffffff;
+            border-radius: 4px;
+            display: flex;
+            margin: 0 auto;
+            text-align: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .box2 {
+            width: 100%;
+            /* height: 800px; */
+            color: rgb(146, 146, 146);
+            display: flex;
+            position: relative;
+            background-color: rgb(199, 199, 199);
+            background-position: center;
+            flex-direction: column;
+            cursor: default;
+            /* padding: 4em 0 2em 0; */
+            text-align: center;
+        }
+        .box2 h2 {
+            color: white;
+            background: red;
+            width: 300px;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 10px; 
+            transition: all .5s;
+        }
+        .box2 h2:hover{
+            background: rgb(43, 57, 255);
+        }
+        main {
+            width: 50%;
+            background: rgb(223, 223, 223);
+            /* margin: 10px; */
+            padding: 10px;
+            box-shadow: 3px 3px 8px rgb(161, 161, 161);
+            color: black;
+        }
+
+        aside {
+            width: 25%;
+            color: black;
+            /* margin: 10px; */
+            padding: 17px;
+            /* border: 1px solid red; */
+            background: rgb(214, 214, 214);
+            box-shadow: 3px 3px 8px rgb(161, 161, 161);
+        }
+
+        main img {
+            width: 100%;
+        }
+
+        aside img {
+            width: 100%;
+        }
+
+        aside div {
+            border: 1px solid red;
+            margin-top: 40px;
+            padding: 10px;
+            background: yellow;
+            font-size: 20px;
+            border-radius: 5px;
+            transition: all .5s;
+        }
+
+        aside div:hover {
+            background: red;
+            color: white;
+        }
+        #goTop{
+            position: fixed;
+            right:20px;
+            bottom:20px;
+            background:rgb(0, 47, 255);
+            padding: 10px;
+            color: white;
+        }
+        @media screen and (max-width:1200px) {
+            .head{       
+                z-index: 1;
+                position: fixed;
+            }
+            .title{
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                position: fixed;
+            }
+            .title img{
+                display: block;
+                position: absolute;
+                padding: 0;
+                left: 50%;            
+            }
+            .title ul {
+                display: initial;
+            }
+            /* .t-name {
+                display: none;
+            } */
+            main {
+                width: 100%;
+                padding: 0;
+            }
+            aside {
+                width: 50%;
+                padding: 0;
+            }
+            .nav{
+                padding: 0;
+            }
+            .menu{
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            padding: 20px 0 0 20px;            
+            }
+            .menu ul{
+                position: absolute;
+                margin-top:48px; 
+                left:0;
+                top:42px;            
+                width:100%;
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+            }
+            .menu.active ul{
+                opacity: 1;
+                max-height: 500px;
+                background-color: rgba(0, 0, 0, .6); 
+            }
+            .menu ul li a{
+                display: block;
+                padding:20px 12px;
+                
+            }
+            .menu ul li a:hover{
+                background: rgb(255, 0, 0);
+                color: white;
+            }
+            .bar{
+                width: 36px;
+                height: 6px;
+                background: rgb(255, 255, 255);
+                margin: 6px 0;
+                border-radius: 2px;
+                display: block;
+                opacity: 1;
+            }
+            .active .bar1{
+                -webkit-transform: rotate(-45deg) translate(-9px, 7px) ;
+                transform: rotate(-45deg) translate(-9px, 7px) ;
+            }
+
+            .active .bar2{opacity: 0;}
+
+            .active .bar3{
+                -webkit-transform: rotate(45deg) translate(-9px, -8px) ;
+                transform: rotate(45deg) translate(-9px, -8px) ;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <div class="title">
+                <a href="">
+                    <img src="img/formula_1_black_background_logo1.gif">
+                </a>
+                <div class="menu transition" >
+                    <div class="bar bar1 transition"></div>
+                    <div class="bar bar2 transition"></div>
+                    <div class="bar bar3 transition"></div>                
+                    <ul class="transition">
+                        <li>
+                            <a href="./css3-hw2-latest.html">LATEST</a>
+                        </li>
+                        <li class="current">
+                            <a href="./css3-hw2-champion.html">CHAMPIONSHIP</a>
+                        </li>
+                        <li>
+                            <a href="./css3-hw2-result.html">RESULT</a>
+                        </li>
+                        <li>
+                            <a href="#video">VIDEO</a>
+                        </li>
+                        <li>
+                            <a href="../css3-hw2.html">HOME</a>
+                        </li>                        
+                    </ul>        
+                </div>
+            </div>
+        </div>
+        <div class="t-name">
+            <h1>Teams and Drivers</h1>
+        </div>
+    </header>
+    <section class="box2">
+        <div class="nav">
+            <main>
+                <a href="page/css3-hw2-mercedes.html">
+                    <h1>Mercedes AMG Petronas</h1>
+                    <img src="img/1519732606237.jpg" alt="">
+                </a>
+            </main>
+            <aside>
+                <a href="page/css3-hw2-hamilton.html">
+                    <h1>L.Hamilton</h1>
+                    <img src="img/1521204312905.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="page/css3-hw2-bottas.html">
+                    <h1>V.Bottas</h1>
+                    <img src="img/1521204355212.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <main>
+                <a href="page/css3-hw2-ferrari.html">
+                    <h1>Scuderia Ferrari</h1>
+                    <img src="img/1519732126365.jpg" alt="">
+                </a>
+            </main>
+            <aside>
+                <a href="page/css3-hw2-vettel.html">
+                    <h1>S.Vettel</h1>
+                    <img src="img/1521204232238.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="page/css3-hw2-raikkonen.html">
+                    <h1>K.Raikkonen</h1>
+                    <img src="img/1521204007378.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <main>
+                <a href="">
+                    <h1>ASTON MARTIN Red Bull Racing</h1>
+                    <img src="img/1519732266132.jpg" alt="">
+                </a>
+            </main>
+            <aside>
+                <a href="">
+                    <h1>D.Ricciarido</h1>
+                    <img src="img/1521203915633.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="">
+                    <h1>M.Verstappen</h1>
+                    <img src="img/1521204147986.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <main>
+                <a href="">
+                    <h1>SAHARA Force India</h1>
+                    <img src="img/1519732097405.jpg" alt="">
+
+                </a>
+            </main>
+            <aside>
+                <a href="">
+                    <h1>S.Perez</h1>
+                    <img src="img/1521204251316.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="">
+                    <h1>E.Ocon</h1>
+                    <img src="img/1521204410342.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <main>
+                <a href="">
+                    <h1>Williams Martini Racing</h1>
+                    <img src="img/1519732384172.jpg" alt="">
+
+                </a>
+            </main>
+            <aside>
+                <a href="">
+                    <h1>L.Strol</h1>
+                    <img src="img/1521204430791.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="">
+                    <h1>S.Sirotkin</h1>
+                    <img src="img/1521204523871.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <main>
+                <a href="">
+                    <h1>Renault Sports Formula one Team</h1>
+                    <img src="img/1519732155789.jpg" alt="">
+                </a>
+            </main>
+            <aside>
+                <a href="">
+                    <h1>N.Hulkenberg</h1>
+                    <img src="img/1521204189320.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="">
+                    <h1>C.Sainz</h1>
+                    <img src="img/1521203891442.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <main>
+                <a href="">
+                    <h1>Scuderia Toro Rosso</h1>
+                    <img src="img/1519732344725.jpg" alt="">
+                </a>
+            </main>
+            <aside>
+                <a href="">
+                    <h1>P.Gasly</h1>
+                    <img src="img/1521204450886.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="">
+                    <h1>B.Hartley</h1>
+                    <img src="img/1521204477209.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <main>
+                <a href="">
+                    <h1>Haas F1 Team</h1>
+                    <img src="img/1519732415092.jpg" alt="">
+                </a>
+            </main>
+            <aside>
+                <a href="">
+                    <h1>R.Grosjen</h1>
+                    <img src="img/1521204214711.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="">
+                    <h1>K.Magnussen</h1>
+                    <img src="img/1521204087103.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <main>
+                <a href="">
+                    <h1>McLaren</h1>
+                    <img src="img/1519732479270.jpg" alt="">
+                </a>
+            </main>
+            <aside>
+                <a href="">
+                    <h1>F.Alonso</h1>
+                    <img src="img/1521203948853.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="">
+                    <h1>S.Vandoorne</h1>
+                    <img src="img/1521204292370.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <main>
+                <a href="">
+                    <h1>Sauber F1 Team</h1>
+                    <img src="img/1519732309156.jpg" alt="">
+                </a>
+            </main>
+            <aside>
+                <a href="">
+                    <h1>M.Ericsson</h1>
+                    <img src="img/1521204126614.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+            <aside>
+                <a href="">
+                    <h1>C.Leclerc</h1>
+                    <img src="img/1521204500196.jpg" alt="">
+                    <div>Info</div>
+                </a>
+            </aside>
+        </div>
+        <a href="./css3-hw2-castle.html">
+            <h2>Castle</h2>
+        </a>
+    </section>
+    <a class="scrollup" id="goTop"><i class="fas fa-arrow-up"></i></a>
+
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script>
+    $("#goTop").click(function(){
+        $("html").animate({
+            scrollTop:0
+        },700);
+    });
+    $(".menu").click(function(){
+      event.stopPropagation();
+      $(this).toggleClass("active");
+    });
+    $(window).click(function(){
+      $(".menu").removeClass("active");
+    });
+    </script>
+</body>
+
+</html>

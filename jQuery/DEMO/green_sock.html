@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>green sock</title>
+</head>
+<style>
+    body {
+        margin:10px;
+    }
+    .box {
+        position:relative;
+        display:inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 15%;
+    }
+    h1 {
+        font-size:24px;
+    }
+
+    h3 {
+        font-size:18px;
+        font-weight: 300;
+        color:#ccc;
+    }
+    .orange{
+        background: orange;
+    }
+    .green{
+        background: green;
+    }
+    .grey{
+        background: gray;
+    }
+    li{
+        width: 100px;
+        height: 50px;
+        margin: 20px;
+        background: pink;
+        list-style: none;
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>Animations are placed on the Global Timeline, controlled by GSDevTools</h1>
+    <h3>A TimelineLite animates the green and orange boxes</h3>
+    <div class="box green"></div>
+    <div class="box orange"></div>
+    <h3>A separate TweenLite tween animates the grey box</h3>
+    <div class="box grey"></div>
+    <ul>
+        <li>0000</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+<script src="js/gsap/GSDevTools.min.js"></script>
+<script>
+    //timeline animates green and orange
+    var tl = new TimelineLite()
+    
+    tl.to(".orange", 1, {x:700})
+    .to(".green", 2, {x:700, ease:Bounce.easeOut})
+    .staggerFrom("li" , 2 , {opacity:0} , .4)
+    
+
+    //separate tween with a delay which makes it play after the timline
+    TweenLite.to(".grey", 1, {x:700, rotation:360, delay:3})
+
+    //instantiate GSDevTools with default settings
+    GSDevTools.create();
+
+    // GSDevTools will control all animations on the Global Timeline
+</script>
+</html>
