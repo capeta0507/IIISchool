@@ -51,7 +51,7 @@
             </div>
             <ul>
                 <li class="leftSide" onclick="showpage(this,'home')">JQUERY Home</li>
-                <li class="leftSide" onclick="showpage(this,'intro')">JQUERY Introduction</li>
+                <li class="leftSide" onclick="showpage(this,'Intro')">JQUERY Introduction</li>
                 <li class="leftSide" onclick="showpage(this,'ImageSlides')">JQUERY Image slider</li>
                 <li class="leftSide" onclick="showpage(this,'album')">JQUERY album</li>
                 <li class="leftSide" onclick="showpage(this,'menu')">JQUERY menu bar</li>
@@ -69,7 +69,7 @@
 <script>
     $(document).ready(function () {
         var tabs = document.getElementsByClassName("leftSide");
-        if (tabs.length <= 0) {} else {
+        if (tabs.length <= 0) { } else {
             showpage(tabs[0], 'home');
             // jQuery left side bar li first item,加入 Active2 class name
             var jQHome = $("#left_content li:first");

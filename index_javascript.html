@@ -53,7 +53,7 @@
             </div>
             <ul>
                 <li class="leftSide" onclick="showpage(this,'home')">JS Home</li>
-                <li class="leftSide" onclick="showpage(this,'intro')">JS Introduction</li>
+                <li class="leftSide" onclick="showpage(this,'Intro')">JS Introduction</li>
                 <li class="leftSide" onclick="showpage(this,'yahooTab')">JS Yahoo Tab</li>
                 <li class="leftSide" onclick="showpage(this,'chart')">JS Google chart</li>
                 <li class="leftSide" onclick="showpage(this,'json')">JS JSON</li>
@@ -69,7 +69,7 @@
 <script>
     $(document).ready(function () {
         var tabs = document.getElementsByClassName("leftSide");
-        if (tabs.length <= 0) {} else {
+        if (tabs.length <= 0) { } else {
             showpage(tabs[0], 'home');
             // jQuery left side bar li first item,加入 Active2 class name
             var jQHome = $("#left_content li:first");
