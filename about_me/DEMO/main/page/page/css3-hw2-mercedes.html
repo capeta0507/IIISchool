@@ -7,368 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mercedes</title>
     <script src="JS/jquery-3.3.1.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="hw2.css">
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            /* background: rgb(212, 212, 212); */
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        header {
-            width: 100%;
-            height: 800px;
-            background: url(img/3917283.jpg) 0 0 no-repeat fixed;
-            color: white;
-            background-color: aqua;
-            display: flex;
-            position: relative;
-            /* text-align: center; */
-            background-size: cover;
-            background-position: center;
-            flex-direction: column;
-            cursor: default;
-        }
-        .head{
-            background-color: rgba(0, 0, 0, .6);
-            height: 100px;
-            width: 100%;    
-            z-index: 1;
-            position: fixed;
-        }
-        .title {
-            /* background-color: rgba(0, 0, 0, .6); */
-            height: 100px;
-            width: 80%;
-            display: flex;
-            margin: 0 auto;
-            justify-content: space-around;
-            z-index: 1;
-            /* position: fixed; */
-        }
-        .menu {
-            width: 100%;
-            margin: 20px;
-            /* padding: 4em 4em 2em 4em;*/
-            border-radius: 4px;
-            display: flex;
-            margin: 10px auto;
-            text-align: center;
-            justify-content: flex-end;
-        
-        }
-
-        .menu ul {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .menu ul li {
-            /* padding: 5px; */
-            margin: 20px;
-            /* border: 1px solid red; */
-        }
-
-        .menu ul li a {
-            padding: 10px 20px;
-            color: white;
-            display: block;
-            transition: all .5s;        
-        }
-
-        .menu ul li a:hover {
-            color: red;
-        }
-        .transition{
-            transition: 0.4s;
-        }
-        .bar{
-            width: 36px;
-            height: 6px;
-            background: #666;
-            margin: 6px 0;
-            border-radius: 2px;
-            opacity: 0;
-            display: none;
-        }
-        .nav {
-            width: 80%;
-            margin: 20px;
-            padding: 4em 4em 2em 4em;
-            background-color: #ffffff;
-            border-radius: 4px;
-            display: flex;
-            margin: 0 auto;
-            text-align: center;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            color: black;
-        }
-        
-        .title img {
-            width: 200px;
-            padding-left: 10px;
-        }
-
-        .t-name {
-            /* border: 1px solid red; */
-            background-color: rgba(0, 0, 0, .6);
-            text-align: center;
-            text-shadow: 3px 3px 8px rgb(161, 161, 161);
-            position: relative;
-            margin-top: 300px;
-            padding: 100px;
-            font-size: 26px;
-            transition: all .5s;
-        }
-
-        .box2 {
-            width: 100%;
-            /* height: 800px; */
-            color: rgb(146, 146, 146);
-            display: flex;
-            position: relative;
-            background-color: rgb(199, 199, 199);
-            background-position: center;
-            flex-direction: column;
-            cursor: default;
-            /* padding: 4em 0 2em 0; */
-            text-align: center;
-        }
-
-        main {
-            width: 50%;
-            background: rgb(223, 223, 223);
-            /* margin: 10px; */
-            padding: 10px;
-            box-shadow: 3px 3px 8px rgb(161, 161, 161);
-            color: black;
-        }
-
-        aside {
-            width: 45%;
-            color: black;
-            /* margin: 10px; */
-            padding: 17px;
-            /* border: 1px solid red; */
-            background: rgb(214, 214, 214);
-            box-shadow: 3px 3px 8px rgb(161, 161, 161);
-        }
-
-        table,
-        tr,
-        td {
-            /* border: 1px solid red; */
-            background: rgb(228, 228, 228);
-        }
-
-        table {
-            margin: 10px auto;
-            width: 100%;
-        }
-
-        tr,
-        td {
-            padding: 10px;
-        }
-
-        table img {
-            width: 100%;
-        }
-
-        main img {
-            width: 100%;
-        }
-
-        aside img {
-            width: 50%;
-        }
-
-        aside div {
-            border: 1px solid red;
-            margin-top: 40px;
-            padding: 10px;
-            background: yellow;
-            font-size: 20px;
-            border-radius: 5px;
-        }
-
-        .slide_wrap {
-            width: 1000px;
-            height: 650px;
-            margin: 0 auto;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .slide_wrap img {
-            width: 100%;
-        }
-
-        .slide_wrap ul.slides {
-            height: 300px;
-            /* overflow: hidden; */
-            width: 3200px;
-            display: flex;
-            left: 0px;
-            position: absolute;
-            transition: all 1s;
-        }
-
-        .slides li {
-            width: 1000px;
-        }
-
-        .pages {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .pages li {
-            width: 18px;
-            height: 18px;
-            border: 1px solid gray;
-            border-radius: 50%;
-            margin: 0 4px;
-        }
-
-        .pages li:hover {
-            background: white;
-        }
-
-        .arrow {
-            font-size: 32px;
-            color: black;
-            position: absolute;
-            top: 250px;
-            z-index: 10;
-            opacity: .6;
-            width: 40px;
-            height: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .arrow path {
-            fill: white;
-        }
-
-        .arrow_left {
-            left: 0px;
-            background-color: rgba(0, 0, 0); 
-        }
-
-        .arrow_right {
-            right: 0px;
-            background-color: rgba(0, 0, 0); 
-        }
-
-        .arrow:hover {
-            opacity: 1;
-            background: rgba(0, 0, 0, .5);
-        }
-
-        @media screen and (max-width:1200px) {
-            .title{
-                width: 100%;
-                height: 100px;
-                text-align: center;
-                position: fixed;
-            }
-            .title img{
-                display: block;
-                position: absolute;
-                padding: 0;
-                left: 50%;            
-            }
-            .title ul {
-                display: initial;
-            }
-            /* .t-name {
-                display: none;
-            } */
-            main {
-                width: 100%;
-            }
-            aside {
-                width: 100%;
-            }
-            .menu{
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            padding: 20px 0 0 20px;
-            
-        }
-        .menu ul{
-            position: absolute;
-            margin-top:48px; 
-            left:0;
-            top:42px;            
-            width:100%;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-        }
-        .menu.active ul{
-            opacity: 1;
-            max-height: 500px;
-            background-color: rgba(0, 0, 0, .6); 
-        }
-        .menu ul li a{
-            display: block;
-            padding:20px 12px;
-            
-        }
-        .menu ul li a:hover{
-            background: rgb(255, 0, 0);
-            color: white;
-        }
-        .bar{
-            width: 36px;
-            height: 6px;
-            background: rgb(255, 255, 255);
-            margin: 6px 0;
-            border-radius: 2px;
-            display: block;
-            opacity: 1;
-        }
-        .active .bar1{
-            -webkit-transform: rotate(-45deg) translate(-9px, 7px) ;
-            transform: rotate(-45deg) translate(-9px, 7px) ;
-        }
-
-        .active .bar2{opacity: 0;}
-
-        .active .bar3{
-            -webkit-transform: rotate(45deg) translate(-9px, -8px) ;
-            transform: rotate(45deg) translate(-9px, -8px) ;
-        }
-        .nav{
-            padding: 0;
-        }
-        }
-    </style>
 </head>
 
 <body>
@@ -378,14 +18,14 @@
                 <a href="">
                     <img src="img/formula_1_black_background_logo1.gif">
                 </a>
-                <div class="menu transition" >
+                <div class="menu transition">
                     <div class="bar bar1 transition"></div>
                     <div class="bar bar2 transition"></div>
-                    <div class="bar bar3 transition"></div>                
+                    <div class="bar bar3 transition"></div>
                     <ul class="transition">
                         <a href=""></a>
                         <li>
-                            <a href="../css3-hw2-latest.html" >LATEST</a>
+                            <a href="../css3-hw2-latest.html">LATEST</a>
                         </li>
                         <li>
                             <a href="../css3-hw2-champion.html">CHAMPIONSHIP</a>
@@ -395,11 +35,11 @@
                         </li>
                         <li>
                             <a href="">VIDEO</a>
-                        </li>                    
+                        </li>
                         <li>
                             <a href=".../css3-hw2.html">HOME</a>
                         </li>
-                    </ul>            
+                    </ul>
                 </div>
             </div>
         </div>
@@ -427,7 +67,7 @@
                     <tr>
                         <td>Team Chief</td>
                         <td>Toto Wolff</td>
-                    </tr>                    
+                    </tr>
                     <tr>
                         <td>Technical Chief</td>
                         <td>James Allison</td>
@@ -462,24 +102,50 @@
                     </tr>
                 </table>
             </aside>
-            <h1>In profile</h1>
-            <p style="padding:10px;">Mercedes' revival of their Formula 1 tradition through the creation of a works team for the 2010 championship was also the platform for a meteoric rise up the Grand Prix order. Already the team had generated huge excitement by securing the sensational return of Michael Schumacher, but headlines began to follow on track: three podiums came in their debut season, all via Nico Rosberg - who then claimed a breakthrough pole/victory double at China in 2012. The following season he would be paired with Lewis Hamilton, with the duo going on to stage some epic title battles as Mercedes swept all before them to become one of the most dominant forces of the modern F1 era...</p>
-            <h3>2017</h3>
-            <p>See off a stern title challenge from Ferrari, as their W08 car proves – by their own admission – to be something of a ‘diva’. With old adversary Rosberg gone, Hamilton settles nicely into his role as the team’s de facto number one, leading them to a fourth successive championship double, as new partner Valtteri Bottas scores his first (three) race wins.</p>
-            <h3>2016</h3>
-            <p>Mercedes' supremacy reaches new heights, as they win 19 of 21 rounds en route to a third title double in a row. This time, however, it's Rosberg who lifts the drivers' crown following a titanic season-long struggle with Hamilton, shortly after which he shocks the team - and the F1 world - by announcing his immediate retirement.</p>
-            <h3>2015</h3>
-            <p>Hamilton leads Mercedes to a second successive championship double, the team once more emerging victorious in 16 of the year's 19 rounds, this time beating their own 2014 record with a stunning 12 one-two finishes.</p>
-            <h3>2014</h3>
-            <p>Dominate first season of hybrid engine era, winning a record 16 of 19 races, with 11 one-two finishes. Secure maiden constructors' crown with three rounds to spare, and clinch first drivers' title since Juan Manuel Fangio in the 1950s courtesy of Lewis Hamilton.</p>
-            <h3>2013</h3>
-            <p>F1 W04 inherently quick but initially hard on tyres. Four consecutive poles eventually yield first season win with Rosberg in Monaco, followed by others in Great Britain (Rosberg) and Hungary (Hamilton). Unable to hold onto Red Bull in later races and finish second overall.</p>
-            <h3>2012</h3>
-            <p>Rosberg scores team's breakthrough win - Mercedes' first as works squad since 1955 - at round three in China, at wheel of innovative F1 W03, complete with unique 'double DRS' wing system. But pace drops off throughout season and the team struggles for further podiums.</p>
-            <h3>2011</h3>
-            <p>M.Schumacher and Rosberg frustrated as team unable to improve on form as F1's fourth power, a fair way off frontrunners Red Bull, McLaren and Ferrari. Highlights include Schumacher's fourth-place finish in Canada and Rosberg's third-place grid slot in Turkey.</p>
-            <h3>2010</h3>
-            <p>First Mercedes works squad since 1955 formed after purchase of Brawn GP team (formerly Honda (2006-2008), BAR (1999-2005) and Tyrrell (1970-1998)), but fail to maintain team's front-running form of '09. Michael Schumacher makes much anticipated F1 comeback, but outgunned by younger team mate Nico Rosberg. Fourth overall.</p>
+            <div class="story">
+                <h1>In profile</h1>
+                <p>Mercedes' revival of their Formula 1 tradition through the creation of a works team for the 2010 championship
+                    was also the platform for a meteoric rise up the Grand Prix order. Already the team had generated huge
+                    excitement by securing the sensational return of Michael Schumacher, but headlines began to follow on
+                    track: three podiums came in their debut season, all via Nico Rosberg - who then claimed a breakthrough
+                    pole/victory double at China in 2012. The following season he would be paired with Lewis Hamilton, with
+                    the duo going on to stage some epic title battles as Mercedes swept all before them to become one of
+                    the most dominant forces of the modern F1 era...</p>
+                <h3>2017</h3>
+                <p>See off a stern title challenge from Ferrari, as their W08 car proves – by their own admission – to be something
+                    of a ‘diva’. With old adversary Rosberg gone, Hamilton settles nicely into his role as the team’s de
+                    facto number one, leading them to a fourth successive championship double, as new partner Valtteri Bottas
+                    scores his first (three) race wins.</p>
+                <h3>2016</h3>
+                <p>Mercedes' supremacy reaches new heights, as they win 19 of 21 rounds en route to a third title double in
+                    a row. This time, however, it's Rosberg who lifts the drivers' crown following a titanic season-long
+                    struggle with Hamilton, shortly after which he shocks the team - and the F1 world - by announcing his
+                    immediate retirement.</p>
+                <h3>2015</h3>
+                <p>Hamilton leads Mercedes to a second successive championship double, the team once more emerging victorious
+                    in 16 of the year's 19 rounds, this time beating their own 2014 record with a stunning 12 one-two finishes.</p>
+                <h3>2014</h3>
+                <p>Dominate first season of hybrid engine era, winning a record 16 of 19 races, with 11 one-two finishes. Secure
+                    maiden constructors' crown with three rounds to spare, and clinch first drivers' title since Juan Manuel
+                    Fangio in the 1950s courtesy of Lewis Hamilton.</p>
+                <h3>2013</h3>
+                <p>F1 W04 inherently quick but initially hard on tyres. Four consecutive poles eventually yield first season
+                    win with Rosberg in Monaco, followed by others in Great Britain (Rosberg) and Hungary (Hamilton). Unable
+                    to hold onto Red Bull in later races and finish second overall.</p>
+                <h3>2012</h3>
+                <p>Rosberg scores team's breakthrough win - Mercedes' first as works squad since 1955 - at round three in China,
+                    at wheel of innovative F1 W03, complete with unique 'double DRS' wing system. But pace drops off throughout
+                    season and the team struggles for further podiums.</p>
+                <h3>2011</h3>
+                <p>M.Schumacher and Rosberg frustrated as team unable to improve on form as F1's fourth power, a fair way off
+                    frontrunners Red Bull, McLaren and Ferrari. Highlights include Schumacher's fourth-place finish in Canada
+                    and Rosberg's third-place grid slot in Turkey.</p>
+                <h3>2010</h3>
+                <p>First Mercedes works squad since 1955 formed after purchase of Brawn GP team (formerly Honda (2006-2008),
+                    BAR (1999-2005) and Tyrrell (1970-1998)), but fail to maintain team's front-running form of '09. Michael
+                    Schumacher makes much anticipated F1 comeback, but outgunned by younger team mate Nico Rosberg. Fourth
+                    overall.</p>
+            </div>
             <div class="slide_wrap">
                 <ul class="slides">
                     <!-- <li>
@@ -527,27 +193,25 @@
         </div>
 
     </section>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
         crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
         crossorigin="anonymous"></script>
 
     <script>
-        var slides = ["1424862752339.jpg","1424862752947.jpg","1424862753257.jpg","1424862753627.jpg","1424862753571.jpg","1520611856985.jpg","1520418291032.jpg"];
+        var slides = ["1424862752339.jpg", "1424862752947.jpg", "1424862753257.jpg", "1424862753627.jpg", "1424862753571.jpg", "1520611856985.jpg", "1520418291032.jpg"];
         var slideWidth = $(".slide_wrap").width();
-        var slideNum=0;
+        var slideNum = 0;
         // console.log(slides[0]);
         //var sildeCount=$(".slides li").length;
         var slideCount = slides.length;
         console.log(slideWidth);
 
-        for($i=0; $i< slideCount;$i++){
+        for ($i = 0; $i < slideCount; $i++) {
             console.log(slides[$i])
-            $(".slides").append("<li><img src='img/"+ slides[$i] + "' alt=''></li>")
+            $(".slides").append("<li><img src='img/" + slides[$i] + "' alt=''></li>")
             $(".pages").append("<li></li>");
         }
 
@@ -555,43 +219,43 @@
         // $(".slide_wrap ul.slides").width(slideWidth*slideCount);
         setWidth();
 
-        $(".pages li").eq(0).css("background","red");
-        $(".pages").on("mouseenter","li",function(){
-            slideNum=$(this).index();
+        $(".pages li").eq(0).css("background", "red");
+        $(".pages").on("mouseenter", "li", function () {
+            slideNum = $(this).index();
             moveSlide(slideNum);
         });
-        $("#left").click(function(){
+        $("#left").click(function () {
             slideNum--;
-            if(slideNum<0)slideNum=slideCount-1;
+            if (slideNum < 0) slideNum = slideCount - 1;
             moveSlide(slideNum);
         });
-        $("#right").click(function(){
+        $("#right").click(function () {
             slideNum++;
-            if(slideNum>=slideCount)slideNum=0;
+            if (slideNum >= slideCount) slideNum = 0;
             moveSlide(slideNum);
         });
-        $(window).resize(function(){
+        $(window).resize(function () {
             setWidth();
         });
-        function setWidth(){
+        function setWidth() {
             slideWidth = $(".slide_wrap").width();
             $(".slide li").width(slideWidth);
-            $(".slide_wrap ul.slides").width(slideWidth*slideCount);
+            $(".slide_wrap ul.slides").width(slideWidth * slideCount);
             moveSlide(slideNum);
         };
-        function moveSlide(slideNum){
-             var slideMove = 0-slideNum*slideWidth;
-            $(".pages li").eq(slideNum).css("background","red")
-                .siblings().css("background","transparent");
-            $(".slides").css("left",slideMove);
+        function moveSlide(slideNum) {
+            var slideMove = 0 - slideNum * slideWidth;
+            $(".pages li").eq(slideNum).css("background", "red")
+                .siblings().css("background", "transparent");
+            $(".slides").css("left", slideMove);
         }
 
         //---------menu--------------
-        $(".menu").click(function(){
+        $(".menu").click(function () {
             event.stopPropagation();
             $(this).toggleClass("active");
         });
-        $(window).click(function(){
+        $(window).click(function () {
             $(".menu").removeClass("active");
         });
     </script>
