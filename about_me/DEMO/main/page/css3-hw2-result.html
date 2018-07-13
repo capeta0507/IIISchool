@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,311 +8,329 @@
     <title>Result</title>
     <script src="JS/jquery-3.3.1.min.js"></script>
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        /* background: rgb(212, 212, 212); */
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            /* background: rgb(212, 212, 212); */
+        }
 
-    a {
-        text-decoration: none;
-        color: black;
+        a {
+            text-decoration: none;
+            color: black;
 
-    }
+        }
 
-    ul {
-        list-style-type: none;
-    }
+        ul {
+            list-style-type: none;
+        }
 
-    header {
-        width: 100%;
-        height: 800px;
-        background: url(img/3917283.jpg) 0 0 no-repeat fixed;
-        color: white;
-        background-color: aqua;
-        display: flex;
-        position: relative;
-        /* text-align: center; */
-        background-size: cover;
-        background-position: center;
-        flex-direction: column;
-        cursor: default;
-        
-    }
-    .head{
-        background-color: rgba(0, 0, 0, .6);
-        height: 100px;
-        width: 100%;    
-        z-index: 1;
-        position: fixed;
-    }
-    .title {
-        /* background-color: rgba(0, 0, 0, .6); */
-        height: 100px;
-        width: 80%;
-        display: flex;
-        margin: 0 auto;
-        justify-content: space-around;
-        z-index: 1;
-        /* position: fixed; */
-    }
-    .menu {
-        width: 100%;
-        margin: 20px;
-        /* padding: 4em 4em 2em 4em;*/
-        border-radius: 4px;
-        display: flex;
-        margin: 10px auto;
-        text-align: center;
-        justify-content: flex-end;
-        
-    }
-    .menu ul {
-        display: flex;
-        justify-content: space-around;
-    }
+        header {
+            width: 100%;
+            height: 800px;
+            background: url(img/3917283.jpg) 0 0 no-repeat fixed;
+            color: white;
+            background-color: aqua;
+            display: flex;
+            position: relative;
+            /* text-align: center; */
+            background-size: cover;
+            background-position: center;
+            flex-direction: column;
+            cursor: default;
 
-    .menu ul li {
-        /* padding: 5px; */
-        margin: 20px;
-        /* border: 1px solid red; */
-    }
+        }
 
-    .menu ul li a {
-        padding: 10px 20px;
-        color: white;
-        display: block;
-        transition: all .5s;        
-    }
-
-    .menu ul li a:hover,.menu li.current a {
-        color: red;
-    }
-    .transition{
-        transition: 0.4s;
-    }
-    .bar{
-        width: 36px;
-        height: 6px;
-        background: #666;
-        margin: 6px 0;
-        border-radius: 2px;
-        opacity: 0;
-        display: none;
-    }
-    .nav {
-        width: 80%;
-        margin: 20px;
-        padding: 4em 4em 2em 4em;
-        background-color: #ffffff;
-        border-radius: 4px;
-        display: flex;
-        margin: 0 auto;
-        text-align: center;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: space-around;
-    }
-
-    nav ul li {
-        /* padding: 5px; */
-        margin: 20px;
-        /* border: 1px solid red; */
-    }
-
-    nav ul li a {
-        padding: 10px 20px;
-        color: white;
-        display: block;
-        transition: all .5s;        
-    }
-
-    nav ul li a:hover {
-        color: red;
-    }
-
-    .title img {
-        width: 200px;
-        padding-left: 10px;
-    }
-
-    .t-name {
-        /* border: 1px solid red; */
-        background-color: rgba(0, 0, 0, .6);
-        text-align: center;
-        text-shadow: 3px 3px 8px rgb(161, 161, 161);
-        position: relative;
-        margin-top: 300px;
-        padding: 100px;
-        font-size: 26px;
-        transition: all .5s;
-    }
-    .box2 {
-        width: 100%;
-        /* height: 800px; */
-        color: rgb(146, 146, 146);
-        display: flex;
-        position: relative;
-        background-color: rgb(199, 199, 199);
-        background-position: center;
-        flex-direction: column;
-        cursor: default;
-        /* padding: 4em 0 2em 0; */
-        text-align: center;
-    }
-    
-    aside {
-        width: 100%;
-        color: black;
-        /* margin: 10px; */
-        padding: 17px;
-        /* border: 1px solid red; */
-        background: rgb(214, 214, 214);
-        box-shadow: 3px 3px 8px rgb(161, 161, 161);
-    }
-    main img{
-        width: 100%;
-    }
-    aside img{
-        width: 60%;
-    }
-    aside div{
-        border: 1px solid red;
-        margin-top: 40px;
-        padding: 10px;
-        background: yellow;
-        font-size: 20px;
-        border-radius: 5px;        
-    }
-    table,
-    tr,
-    td {
-        /* border: 1px solid red; */
-        background: rgb(228, 228, 228);
-    }
-
-    table {
-        margin: 10px auto;
-        width: 100%;
-    }
-
-    tr,
-    td {
-        padding: 10px;
-    }
-
-    table img {
-        width: 30%;
-    }
-    #goTop{
-        position: fixed;
-        right:20px;
-        bottom:20px;
-        background:rgb(0, 47, 255);
-        padding: 10px;
-        color: white;
-    }
-    @media screen and (max-width:1200px){
-        .head{       
+        .head {
+            background-color: rgba(0, 0, 0, .6);
+            height: 100px;
+            width: 100%;
             z-index: 1;
             position: fixed;
         }
-        .title{
-            width: 100%;
+
+        .title {
+            /* background-color: rgba(0, 0, 0, .6); */
             height: 100px;
+            width: 80%;
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-around;
+            z-index: 1;
+            /* position: fixed; */
+        }
+
+        .menu {
+            width: 100%;
+            margin: 20px;
+            /* padding: 4em 4em 2em 4em;*/
+            border-radius: 4px;
+            display: flex;
+            margin: 10px auto;
             text-align: center;
-            position: fixed;
+            justify-content: flex-end;
+
         }
-        .title img{
-            display: block;
-            position: absolute;
-            padding: 0;
-            left: 50%;     
+
+        .menu ul {
+            display: flex;
+            justify-content: space-around;
         }
-        .title ul{
-            display: initial;
+
+        .menu ul li {
+            /* padding: 5px; */
+            margin: 20px;
+            /* border: 1px solid red; */
         }
-        /* .t-name{
-            display: none;
-        } */
-        main{
-            width: 100%;
-        }
-        aside{
-            width: 100%;
-        }
-        .menu{
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            padding: 20px 0 0 20px;
-            
-        }
-        .menu ul{
-            position: absolute;
-            margin-top:48px; 
-            left:0;
-            top:42px;            
-            width:100%;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-        }
-        .menu.active ul{
-            opacity: 1;
-            max-height: 500px;
-            background-color: rgba(0, 0, 0, .6); 
-        }
-        .menu ul li a{
-            display: block;
-            padding:20px 12px;
-            
-        }
-        .menu ul li a:hover{
-            background: rgb(255, 0, 0);
+
+        .menu ul li a {
+            padding: 10px 20px;
             color: white;
+            display: block;
+            transition: all .5s;
         }
-        .bar{
+
+        .menu ul li a:hover,
+        .menu li.current a {
+            color: red;
+        }
+
+        .transition {
+            transition: 0.4s;
+        }
+
+        .bar {
             width: 36px;
             height: 6px;
-            background: rgb(255, 255, 255);
+            background: #666;
             margin: 6px 0;
             border-radius: 2px;
-            display: block;
-            opacity: 1;
-        }
-        .active .bar1{
-            -webkit-transform: rotate(-45deg) translate(-9px, 7px) ;
-            transform: rotate(-45deg) translate(-9px, 7px) ;
-        }
-
-        .active .bar2{opacity: 0;}
-
-        .active .bar3{
-            -webkit-transform: rotate(45deg) translate(-9px, -8px) ;
-            transform: rotate(45deg) translate(-9px, -8px) ;
-        }
-        .nav{
-            padding: 0;
-        }
-        .country{
+            opacity: 0;
             display: none;
         }
-        .a1{
-            padding: 0;
+
+        .nav {
+            width: 80%;
+            margin: 20px;
+            padding: 4em 4em 2em 4em;
+            background-color: #ffffff;
+            border-radius: 4px;
+            display: flex;
+            margin: 0 auto;
+            text-align: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
         }
-    }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            /* padding: 5px; */
+            margin: 20px;
+            /* border: 1px solid red; */
+        }
+
+        nav ul li a {
+            padding: 10px 20px;
+            color: white;
+            display: block;
+            transition: all .5s;
+        }
+
+        nav ul li a:hover {
+            color: red;
+        }
+
+        .title img {
+            width: 200px;
+            padding-left: 10px;
+        }
+
+        .t-name {
+            /* border: 1px solid red; */
+            background-color: rgba(0, 0, 0, .6);
+            text-align: center;
+            text-shadow: 3px 3px 8px rgb(161, 161, 161);
+            position: relative;
+            margin-top: 300px;
+            padding: 100px;
+            font-size: 26px;
+            transition: all .5s;
+        }
+
+        .box2 {
+            width: 100%;
+            /* height: 800px; */
+            color: rgb(146, 146, 146);
+            display: flex;
+            position: relative;
+            background-color: rgb(199, 199, 199);
+            background-position: center;
+            flex-direction: column;
+            cursor: default;
+            /* padding: 4em 0 2em 0; */
+            text-align: center;
+        }
+
+        aside {
+            width: 100%;
+            color: black;
+            /* margin: 10px; */
+            padding: 17px;
+            /* border: 1px solid red; */
+            background: rgb(214, 214, 214);
+            box-shadow: 3px 3px 8px rgb(161, 161, 161);
+        }
+
+        main img {
+            width: 100%;
+        }
+
+        aside img {
+            width: 60%;
+        }
+
+        aside div {
+            border: 1px solid red;
+            margin-top: 40px;
+            padding: 10px;
+            background: yellow;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+        table,
+        tr,
+        td {
+            /* border: 1px solid red; */
+            background: rgb(228, 228, 228);
+        }
+
+        table {
+            margin: 10px auto;
+            width: 100%;
+        }
+
+        tr,
+        td {
+            padding: 10px;
+        }
+
+        table img {
+            width: 10%;
+        }
+
+        #goTop {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: rgb(0, 47, 255);
+            padding: 10px;
+            color: white;
+        }
+
+        @media screen and (max-width:1200px) {
+            .head {
+                z-index: 1;
+                position: fixed;
+            }
+            .title {
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                position: fixed;
+            }
+            .title img {
+                display: block;
+                position: absolute;
+                padding: 0;
+                left: 50%;
+            }
+            .title ul {
+                display: initial;
+            }
+            /* .t-name{
+            display: none;
+        } */
+            main {
+                width: 100%;
+            }
+            aside {
+                width: 100%;
+            }
+            .menu {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                padding: 20px 0 0 20px;
+
+            }
+            .menu ul {
+                position: absolute;
+                margin-top: 48px;
+                left: 0;
+                top: 42px;
+                width: 100%;
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+            }
+            .menu.active ul {
+                opacity: 1;
+                max-height: 500px;
+                background-color: rgba(0, 0, 0, .6);
+            }
+            .menu ul li a {
+                display: block;
+                padding: 20px 12px;
+
+            }
+            .menu ul li a:hover {
+                background: rgb(255, 0, 0);
+                color: white;
+            }
+            .bar {
+                width: 36px;
+                height: 6px;
+                background: rgb(255, 255, 255);
+                margin: 6px 0;
+                border-radius: 2px;
+                display: block;
+                opacity: 1;
+            }
+            .active .bar1 {
+                -webkit-transform: rotate(-45deg) translate(-9px, 7px);
+                transform: rotate(-45deg) translate(-9px, 7px);
+            }
+
+            .active .bar2 {
+                opacity: 0;
+            }
+
+            .active .bar3 {
+                -webkit-transform: rotate(45deg) translate(-9px, -8px);
+                transform: rotate(45deg) translate(-9px, -8px);
+            }
+            .nav {
+                padding: 0;
+            }
+            .country {
+                display: none;
+            }
+            .a1 {
+                padding: 0;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="head">
@@ -319,14 +338,14 @@
                 <a href="">
                     <img src="img/formula_1_black_background_logo1.gif">
                 </a>
-                <div class="menu transition" >
+                <div class="menu transition">
                     <div class="bar bar1 transition"></div>
                     <div class="bar bar2 transition"></div>
-                    <div class="bar bar3 transition"></div>                
+                    <div class="bar bar3 transition"></div>
                     <ul class="transition">
                         <a href=""></a>
                         <li>
-                            <a href="./css3-hw2-latest.html" >LATEST</a>
+                            <a href="./css3-hw2-latest.html">LATEST</a>
                         </li>
                         <li>
                             <a href="./css3-hw2-champion.html">CHAMPIONSHIP</a>
@@ -336,21 +355,21 @@
                         </li>
                         <li>
                             <a href="">VIDEO</a>
-                        </li>                    
+                        </li>
                         <li>
                             <a href="../css3-hw2.html">HOME</a>
                         </li>
-                    </ul>            
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="t-name">            
+        <div class="t-name">
             <h1>Result</h1>
         </div>
     </header>
     <section id="Championship" class="box2">
         <nav>
-            <ul id="list">                
+            <ul id="list">
                 <li>
                     <a href="#driver">Driver</a>
                 </li>
@@ -359,8 +378,8 @@
                 </li>
                 <li>
                     <a href="#race">Race</a>
-                </li>                
-                
+                </li>
+
             </ul>
         </nav>
         <div class="nav" id="driver">
@@ -368,32 +387,32 @@
                 <h3>Drivers</h3>
                 <table>
                     <tr>
-                        <td>Pos.</td>                        
+                        <td>Pos.</td>
                         <td>Name</td>
                         <td>Team</td>
                         <td class="country">Country</td>
                         <td>Point</td>
                     </tr>
                     <tr>
-                        <td>1</td>                        
+                        <td>1</td>
                         <td>Sebastian Vettel</td>
                         <td>Ferrari</td>
                         <td class="country">
                             <img src="img/Germany.png">
-                        </td>                        
+                        </td>
                         <td>25</td>
                     </tr>
                     <tr>
-                        <td>2</td>                        
+                        <td>2</td>
                         <td>Lewis Hamilton</td>
                         <td>Mercedes</td>
                         <td class="country">
                             <img src="img/Great-Britain.png">
-                        </td>                        
+                        </td>
                         <td>18</td>
                     </tr>
                     <tr>
-                        <td>3</td>                        
+                        <td>3</td>
                         <td>Kimi Raikkonen</td>
                         <td>Ferrari</td>
                         <td class="country">
@@ -402,7 +421,7 @@
                         <td>15</td>
                     </tr>
                     <tr>
-                        <td>4</td>                        
+                        <td>4</td>
                         <td>Daniel Ricciardo</td>
                         <td>Red Bull Racing</td>
                         <td class="country">
@@ -415,12 +434,12 @@
                         <td>fernando Alonso</td>
                         <td>McLaren</td>
                         <td class="country">
-                            <img src="img/spain.png">
+                            <img src="img/Spain.png">
                         </td>
                         <td>10</td>
                     </tr>
                     <tr>
-                        <td>6</td>                        
+                        <td>6</td>
                         <td>Max Verstappen</td>
                         <td>Red Bull Racing</td>
                         <td class="country">
@@ -429,46 +448,46 @@
                         <td>8</td>
                     </tr>
                     <tr>
-                        <td>7</td>                        
+                        <td>7</td>
                         <td>Nico Hulkenberg</td>
                         <td>Renault</td>
                         <td class="country">
                             <img src="img/Germany.png">
-                        </td>                        
+                        </td>
                         <td>6</td>
                     </tr>
                     <tr>
-                        <td>8</td>                        
+                        <td>8</td>
                         <td>Valtteri Bottas</td>
                         <td>Mercedes</td>
                         <td class="country">
                             <img src="img/Finland.png">
                         </td>
-                        
+
                         <td>4</td>
                     </tr>
                     <tr>
-                        <td>9</td>                        
+                        <td>9</td>
                         <td>Stoffel Vandoorne</td>
                         <td>McLaren</td>
                         <td class="country">
                             <img src="img/Belgium.png">
                         </td>
-                        
+
                         <td>2</td>
                     </tr>
                     <tr>
-                        <td>10</td>                        
+                        <td>10</td>
                         <td>Carlos Sainz</td>
                         <td>Renault</td>
                         <td class="country">
                             <img src="img/Spain.png">
                         </td>
-                        
+
                         <td>1</td>
                     </tr>
                     <tr>
-                        <td>11</td>                        
+                        <td>11</td>
                         <td>Sergio Perez</td>
                         <td>Force India</td>
                         <td class="country">
@@ -486,21 +505,21 @@
                         <td>0</td>
                     </tr>
                     <tr>
-                        <td>13</td>                        
+                        <td>13</td>
                         <td>Charles Leclerc</td>
                         <td>Sauber</td>
                         <td class="country">
                             <img src="img/Monaco.png">
-                        </td>                        
+                        </td>
                         <td>0</td>
                     </tr>
                     <tr>
-                        <td>14</td>                        
+                        <td>14</td>
                         <td>Lance Stroll</td>
                         <td>Williams</td>
                         <td class="country">
                             <img src="img/Canada.png">
-                        </td>                        
+                        </td>
                         <td>0</td>
                     </tr>
                     <tr>
@@ -513,7 +532,7 @@
                         <td>0</td>
                     </tr>
                     <tr>
-                        <td>16</td>                        
+                        <td>16</td>
                         <td>Romain Grosjean</td>
                         <td>Haas</td>
                         <td class="country">
@@ -522,7 +541,7 @@
                         <td>0</td>
                     </tr>
                     <tr>
-                        <td>17</td>                        
+                        <td>17</td>
                         <td>Kevin Magnussen</td>
                         <td>Haas</td>
                         <td class="country">
@@ -531,7 +550,7 @@
                         <td>0</td>
                     </tr>
                     <tr>
-                        <td>18</td>                        
+                        <td>18</td>
                         <td>Pierre Gasly</td>
                         <td>Toro Rosso</td>
                         <td class="country">
@@ -540,7 +559,7 @@
                         <td>0</td>
                     </tr>
                     <tr>
-                        <td>19</td>                        
+                        <td>19</td>
                         <td>Marcus Ericsson</td>
                         <td>Sauber</td>
                         <td class="country">
@@ -549,357 +568,403 @@
                         <td>0</td>
                     </tr>
                     <tr>
-                        <td>20</td>                        
+                        <td>20</td>
                         <td>Sergey Sirotkin</td>
                         <td>Williams</td>
                         <td class="country">
                             <img src="img/Russian.png">
-                        </td>                        
+                        </td>
                         <td>0</td>
                     </tr>
                 </table>
             </aside>
         </div>
         <div class="nav" id="team">
-                <aside class="a1">
-                    <h3>Teams</h3>
-                    <table>
-                        <tr>
-                            <td>Pos.</td>
-                            <td>Team</td>
-                            <td class="country">Country</td>                        
-                            <td>Point</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Ferrari</td>
-                            <td class="country">
-                                <img src="img/Italia.png">
-                            </td>                        
-                            <td>40</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Mercedes</td>
-                            <td class="country">
-                                <img src="img/Great-Britain.png">
-                            </td>                        
-                            <td>22</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Red Bull Racing</td>
-                            <td class="country">
-                                <img src="img/Austria.png">
-                            </td>                        
-                            <td>20</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>McLaren</td>
-                            <td class="country">
-                                <img src="img/Great-Britain.png">
-                            </td>                        
-                            <td>12</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Renault</td>
-                            <td class="country">
-                                <img src="img/France.png">
-                            </td>                        
-                            <td>7</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Force India</td>
-                            <td class="country">
-                                <img src="img/India.png">
-                            </td>                        
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Sauber</td>
-                            <td class="country">
-                                <img src="img/Switzerland.png">
-                            </td>                       
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Williams</td>
-                            <td class="country">
-                                <img src="img/Great-Britain.png">
-                            </td>                        
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Toro Rosso</td>
-                            <td class="country">
-                                <img src="img/Italia.png">
-                            </td>                        
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>Haas</td>
-                            <td class="country">
-                                <img src="img//America.png">
-                            </td>                        
-                            <td>0</td>
-                        </tr>                    
-                    </table>
-                </aside>
-            </div>
+            <aside class="a1">
+                <h3>Teams</h3>
+                <table>
+                    <tr>
+                        <td>Pos.</td>
+                        <td>Team</td>
+                        <td class="country">Country</td>
+                        <td>Point</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Ferrari</td>
+                        <td class="country">
+                            <img src="img/Italia.png">
+                        </td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mercedes</td>
+                        <td class="country">
+                            <img src="img/Great-Britain.png">
+                        </td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Red Bull Racing</td>
+                        <td class="country">
+                            <img src="img/Austria.png">
+                        </td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>McLaren</td>
+                        <td class="country">
+                            <img src="img/Great-Britain.png">
+                        </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Renault</td>
+                        <td class="country">
+                            <img src="img/France.png">
+                        </td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Force India</td>
+                        <td class="country">
+                            <img src="img/India.png">
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Sauber</td>
+                        <td class="country">
+                            <img src="img/Switzerland.png">
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Williams</td>
+                        <td class="country">
+                            <img src="img/Great-Britain.png">
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Toro Rosso</td>
+                        <td class="country">
+                            <img src="img/Italia.png">
+                        </td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Haas</td>
+                        <td class="country">
+                            <img src="img//America.png">
+                        </td>
+                        <td>0</td>
+                    </tr>
+                </table>
+            </aside>
+        </div>
         <div class="nav" id="race">
-                <aside class="a1">
-                    <h3>Race</h3>
-                    <table>
-                        <tr>
-                            <td>No.</td>
-                            <td>Name</td>
-                            <td class="country">Country</td>
-                            <td>Winner</td>
-                            <td>Date</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="">AUSTRALIA</a></td>
-                            <td class="country">
-                                <img src="img/Australia.png">
-                            </td>
-                            <td>Sebastian Vettel</td>                        
-                            <td>
-                                25 Mar
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><a href="">BAHRAIN</a></td>
-                            <td class="country">
-                                <img src="img/Bahrain.png">
-                            </td>
-                            <td></td>                        
-                            <td>08 Apr</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><a href="">CHINA</a> </td>
-                            <td class="country">
-                                <img src="img/China.png">
-                            </td>
-                            <td></td>                        
-                            <td>15 Apr</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><a href="">BAKU CITY</a></td>
-                            <td class="country">
-                                <img src="img/AZERBAIJAN.png">
-                            </td>
-                            <td></td>                        
-                            <td>
-                                29 Apr
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><a href="">SPAIN</a></td>
-                            <td class="country">
-                                <img src="img/spain.png">
-                            </td>
-                            <td></td>                        
-                            <td>
-                                13 May
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td><a href="">MONACO</a></td>
-                            <td class="country">
-                                <img src="img/Monaco.png">
-                            </td>
-                            <td></td>                        
-                            <td>
-                                27 May
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td><a href="">CANADA</a> </td>
-                            <td class="country">
-                                <img src="img/Canada.png">
-                            </td>
-                            <td></td>                        
-                            <td>
-                                10 Jun
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td><a href="">FRANCE</a></td>
-                            <td class="country">
-                                <img src="img/France.png">
-                            </td>
-                            <td></td>                        
-                            <td>
-                                24 Jun
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td><a href="">AUSTRIA</a></td>
-                            <td class="country">
-                                <img src="img/Austria.png">
-                            </td>
-                            <td></td>                        
-                            <td>
-                                01 Jul
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td><a href="">GREAT-BRITAIN</a></td>
-                            <td class="country">
-                                <img src="img/Great-Britain.png">
-                            </td>
-                            <td></td>                        
-                            <td>
-                                08 Jul
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td><a href="">GERMANY</a> </td>
-                            <td class="country">
-                                <img src="img/Germany.png">
-                            </td>
-                            <td></td>                        
-                            <td>22 jul</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td><a href="">HUNGARY</a></td>
-                            <td class="country">
-                                <img src="img/Hungary.png">
-                            </td>
-                            <td></td>                       
-                            <td>29 Jul</td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td><a href="">BELGIUM</a> </td>
-                            <td class="country">
-                                <img src="img/Belgium.png">
-                            </td>
-                            <td></td>                        
-                            <td>26 Aug</td>
-                        </tr>
-                        <tr>
-                            <td>14</td>
-                            <td><a href="">ITALIA</a></td>
-                            <td class="country">
-                                <img src="img/Italia.png">
-                            </td>
-                            <td></td>                        
-                            <td>02 Sep</td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td><a href="">SINGAPORE</a></td>
-                            <td class="country">
-                                <img src="img/SINGAPORE.png">
-                            </td>
-                            <td></td>                        
-                            <td>16 Sep</td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td><a href="">RUSSIA</a></td>
-                            <td class="country">
-                                <img src="img/Russian.png">
-                            </td>
-                            <td></td>                        
-                            <td>30 Sep</td>
-                        </tr>
-                        <tr>
-                            <td>17</td>
-                            <td><a href="">JAPAN</a> </td>
-                            <td class="country">
-                                <img src="img/Japan.png">
-                            </td>
-                            <td></td>                        
-                            <td>07 Oct</td>
-                        </tr>
-                        <tr>
-                            <td>18</td>
-                            <td><a href="">AMERICA</a></td>
-                            <td class="country">
-                                <img src="img/America.png">
-                            </td>
-                            <td></td>                        
-                            <td>21 Oct</td>
-                        </tr>
-                        <tr>
-                            <td>19</td>
-                            <td><a href="">MEXICO</a></td>
-                            <td class="country">
-                                <img src="img/Mexico.png">
-                            </td>
-                            <td></td>                        
-                            <td>28 Oct</td>
-                        </tr>
-                        <tr>
-                            <td>20</td>
-                            <td><a href="">BRASIL</a></td>
-                            <td class="country">
-                                <img src="img/Brasil.png">
-                            </td>
-                            <td></td>                        
-                            <td>11 Nov</td>
-                        </tr>
-                        <tr>
-                            <td>21</td>
-                            <td><a href="">ABU DHABI</a></td>
-                            <td class="country">
-                                <img src="img/ABU DHABI.png">
-                            </td>
-                            <td></td>                        
-                            <td>25 Nov</td>
-                        </tr>
-                    </table>
-                </aside>
-            </div>
-            
-            <a class="scrollup" id="goTop"><i class="fas fa-arrow-up"></i></a>
+            <aside class="a1">
+                <h3>Race</h3>
+                <table>
+                    <tr>
+                        <td>No.</td>
+                        <td>Name</td>
+                        <td class="country">Country</td>
+                        <td>Winner</td>
+                        <td>Date</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <a href="">AUSTRALIA</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Australia.png">
+                        </td>
+                        <td>Sebastian Vettel</td>
+                        <td>
+                            25 Mar
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <a href="">BAHRAIN</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Bahrain.png">
+                        </td>
+                        <td>Sebastian Vettel</td>
+                        <td>08 Apr</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <a href="">CHINA</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/China.png">
+                        </td>
+                        <td>Daniel Ricciardo</td>
+                        <td>15 Apr</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <a href="">BAKU CITY</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/AZERBAIJAN.png">
+                        </td>
+                        <td>Lewis Hamilton</td>
+                        <td>
+                            29 Apr
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <a href="">SPAIN</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/spain.png">
+                        </td>
+                        <td>Lewis Hamilton</td>
+                        <td>
+                            13 May
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>
+                            <a href="">MONACO</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Monaco.png">
+                        </td>
+                        <td>Daniel Ricciardo</td>
+                        <td>
+                            27 May
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>
+                            <a href="">CANADA</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Canada.png">
+                        </td>
+                        <td>Max Verstappen</td>
+                        <td>
+                            10 Jun
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>
+                            <a href="">FRANCE</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/France.png">
+                        </td>
+                        <td>Lewis Hamilton</td>
+                        <td>
+                            24 Jun
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>
+                            <a href="">AUSTRIA</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Austria.png">
+                        </td>
+                        <td>Max Verstappen</td>
+                        <td>
+                            01 Jul
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>
+                            <a href="">GREAT-BRITAIN</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Great-Britain.png">
+                        </td>
+                        <td>Sebastian Vettel</td>
+                        <td>
+                            08 Jul
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>
+                            <a href="">GERMANY</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Germany.png">
+                        </td>
+                        <td></td>
+                        <td>22 jul</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>
+                            <a href="">HUNGARY</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Hungary.png">
+                        </td>
+                        <td></td>
+                        <td>29 Jul</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>
+                            <a href="">BELGIUM</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Belgium.png">
+                        </td>
+                        <td></td>
+                        <td>26 Aug</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>
+                            <a href="">ITALIA</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Italia.png">
+                        </td>
+                        <td></td>
+                        <td>02 Sep</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>
+                            <a href="">SINGAPORE</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/SINGAPORE.png">
+                        </td>
+                        <td></td>
+                        <td>16 Sep</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>
+                            <a href="">RUSSIA</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Russian.png">
+                        </td>
+                        <td></td>
+                        <td>30 Sep</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>
+                            <a href="">JAPAN</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Japan.png">
+                        </td>
+                        <td></td>
+                        <td>07 Oct</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>
+                            <a href="">AMERICA</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/America.png">
+                        </td>
+                        <td></td>
+                        <td>21 Oct</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>
+                            <a href="">MEXICO</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Mexico.png">
+                        </td>
+                        <td></td>
+                        <td>28 Oct</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>
+                            <a href="">BRASIL</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/Brasil.png">
+                        </td>
+                        <td></td>
+                        <td>11 Nov</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>
+                            <a href="">ABU DHABI</a>
+                        </td>
+                        <td class="country">
+                            <img src="img/ABU DHABI.png">
+                        </td>
+                        <td></td>
+                        <td>25 Nov</td>
+                    </tr>
+                </table>
+            </aside>
+        </div>
+
+        <a class="scrollup" id="goTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
     </section>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     <script>
-        $("#list li a").click(function(){
+        $("#list li a").click(function () {
             var typename = $(this).attr('href');
             $('html,body').animate({
-                scrollTop:$(typename).offset().top
-            },1000);
+                scrollTop: $(typename).offset().top
+            }, 1000);
         })
-        $("#goTop").click(function(){
+        $("#goTop").click(function () {
             $("html").animate({
-                scrollTop:0
-            },1000);
+                scrollTop: 0
+            }, 1000);
         });
 
-        $(".menu").click(function(){
+        $(".menu").click(function () {
             event.stopPropagation();
             $(this).toggleClass("active");
         });
-        $(window).click(function(){
+        $(window).click(function () {
             $(".menu").removeClass("active");
         });
     </script>
 </body>
+
 </html>
