@@ -54,6 +54,7 @@
                 <li class="leftSide" onclick="showpage(this,'mysql_basic')">SQL基礎</li>
                 <li class="leftSide" onclick="showpage(this,'case_1_OrderList')">整合1 OrderList</li>
                 <li class="leftSide" onclick="showpage(this,'case_2_F1Drivers')">整合2 F1 Drivers</li>
+                <li class="leftSide" onclick="showpage(this,'case_3_email')">整合3 email</li>
             </ul>
         </div>
         <div id="right_content">
@@ -65,7 +66,7 @@
 <script>
     $(document).ready(function () {
         var tabs = document.getElementsByClassName("leftSide");
-        if (tabs.length <= 0) {} else {
+        if (tabs.length <= 0) { } else {
             showpage(tabs[0], 'home');
             // jQuery left side bar li first item,加入 Active2 class name
             var jQHome = $("#left_content li:first");
