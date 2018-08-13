@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myadvice">
+
+    </div>
+</body>
+<script>
+
+    var str = navigator.userAgent.toLowerCase();
+    // document.getElementById("myadvice").innerHTML = "用户代理: " + str;
+    var an = str.indexOf("android");
+    var ip = str.indexOf("iphone");
+    // alert("android:" + an);
+    // alert("iphone" + ip);
+    var m = "http://192.168.0.13/mytest/deviceCheck_m.html";
+    var p = "http://192.168.0.13/mytest/deviceCheck_p.html";
+
+    if (an >= 0 || ip >= 0) {
+        window.location.href = m;
+    } else {
+        window.location.href = p;
+    }
+
+</script>
+
+</html>
