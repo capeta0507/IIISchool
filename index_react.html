@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML</title>
+    <title>React</title>
 </head>
 <link rel="stylesheet" href="index.css">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-<style>
-</style>
 
 <body>
     <div class="top">
@@ -24,9 +22,10 @@
     </div>
     <header>
         <ul>
-            <a href="index_html.html" class="active2">
+            <a href="index.html">
                 <li>HTML + CSS</li>
             </a>
+
             <a href="index_javascript.html">
                 <li>JAVASCRIPT</li>
             </a>
@@ -36,10 +35,11 @@
             <a href="index_PHPMySQL.html">
                 <li>PHP + SQL</li>
             </a>
+
             <a href="index_git.html">
                 <li>GIT</li>
             </a>
-            <a href="index_react.html">
+            <a href="index_react.html" class="active2">
                 <li>React</li>
             </a>
             <a href="about_me/about.html">
@@ -50,21 +50,21 @@
     <div class="content">
         <div id="left_content">
             <div style="margin: 10px;font-size: 20px;">
-                <p>HTML CSS Tutorial</p>
+                <p>React Tutorial</p>
             </div>
             <ul>
-                <li class="leftSide active2" onclick="showpage(this,'home')">HTML Home</li>
-                <li class="leftSide" onclick="showpage(this,'Intro')">HTML Introduction</li>
-                <li class="leftSide" onclick="showpage(this,'hover')">HTML hover</li>
-                <li class="leftSide" onclick="showpage(this,'rwd')">HTML CSS RWD</li>
+                <li class="leftSide" onclick="showpage(this,'home')"> Home</li>
+                <li class="leftSide" onclick="showpage(this,'Intro')"> Introduction</li>
+                <li class="leftSide" onclick="showpage(this,'first_react')"> First React</li>
+                <li class="leftSide" onclick="showpage(this,'first_jsx')"> First JSX</li>
+
+
 
             </ul>
         </div>
         <div id="right_content">
 
-
         </div>
-
     </div>
 
 </body>
@@ -77,6 +77,7 @@
             var jQHome = $("#left_content li:first");
             jQHome.addClass("active2");
         }
+
     });
     var navTop = $("header").offset().top;
     $(window).scroll(function () {
@@ -99,15 +100,15 @@
                 count.innerHTML = '<p>AJAX Error</p>';
             }
         }
-        xhr.open("GET", "HTML_CSS/" + pagename + ".html", true);
+        xhr.open("GET", "react/" + pagename + ".html", true);
         xhr.send();
-        var tabs = document.getElementsByClassName("leftSide");
-        for (var y = 0; y < tabs.length; y++) {
-            tabs[y].classList.remove("active2");
+        // jQuery 選擇器 集合 處理方式
+        var jtabSel = $("#left_content li");
+        jtabSel.removeClass("active2");
 
-        }
         //按鈕 本身 自加 Class Name : active
         mythis.classList.add("active2");
+
     }
 </script>
 

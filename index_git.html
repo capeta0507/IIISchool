@@ -39,6 +39,9 @@
             <a href="" class="active2">
                 <li>GIT</li>
             </a>
+            <a href="index_react.html">
+                <li>React</li>
+            </a>
             <a href="about_me/about.html">
                 <li>關於我</li>
             </a>
@@ -46,9 +49,12 @@
     </header>
     <div class="content">
         <div id="left_content">
+            <div style="margin: 10px;font-size: 20px;">
+                <p>Git Tutorial</p>
+            </div>
             <ul>
-                <li class="leftSide" onclick="showpage(this,'home')">Git Home</li>
-                <li class="leftSide" onclick="showpage(this,'git_intro')">Git Introduction</li>
+                <li class="leftSide" onclick="showpage(this,'home')">Home</li>
+                <li class="leftSide" onclick="showpage(this,'git_intro')">Introduction</li>
                 <li class="leftSide" onclick="showpage(this,'git_basic')">Git Basic</li>
                 <li class="leftSide" onclick="showpage(this,'git_github')">Git + GitHub</li>
             </ul>
@@ -62,7 +68,7 @@
 <script>
     $(document).ready(function () {
         var tabs = document.getElementsByClassName("leftSide");
-        if (tabs.length <= 0) {} else {
+        if (tabs.length <= 0) { } else {
             showpage(tabs[0], 'home');
             // jQuery left side bar li first item,加入 Active2 class name
             var jQHome = $("#left_content li:first");
