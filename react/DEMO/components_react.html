@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<style>
+    #contain {
+        padding: 50px;
+        background: aqua;
+    }
+
+    #contain h1 {
+        font-size: 72px;
+        color: white;
+    }
+
+    button {
+        font-size: 64px;
+    }
+
+    #cnut {
+        background: pink;
+        padding: 50px;
+    }
+</style>
+
+<body>
+    <div id="contain"></div>
+    <div id="cnut"></div>
+    <script type="text/babel">
+        var dest = document.querySelector("#contain");
+        var best = document.querySelector("#cnut");
+        class HelloWorld extends React.Component{
+            render(){
+                
+                return <h1>Hello {this.props.greet}</h1>
+            }
+        }
+        
+    
+        ReactDOM.render(
+            <div>
+                <HelloWorld greet="James"/>
+                <HelloWorld greet="Iron Man"/>
+                <HelloWorld greet="Komia"/>
+                <HelloWorld greet="Nio"/>    
+            </div>,
+            dest
+            );
+
+            
+    </script>
+</body>
+
+
+</html>
