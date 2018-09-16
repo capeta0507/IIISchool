@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<style>
+    .row {
+        margin-top: 10em;
+    }
+
+    .card {
+        margin: 0 auto;
+        width: 18rem;
+    }
+
+    #myBlog {
+        margin-top: 10px;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div id="myGitHubLink" class="container">
+
+    </div>
+</body>
+<script type="text/babel">
+    
+    class Card extends React.Component{
+        constructor(props) {
+            super(props);
+            this.state = {
+                item:[]
+            };
+        }
+        componentDidMount = async () => {
+            const data = await 
+            fetch('https://api.github.com/users/capeta0507').then(response => response.json());
+            this.setState({
+                item: data
+            });
+        }
+        render(){
+            return(
+                <div className="card-body">
+                    <h1 id="myCompany" className="card-title">{this.state.item.company}</h1>
+                    <h3 id="myName" className="card-text">{this.state.item.name}</h3>
+                    <img id="myImg" className="card-img-top" src={this.state.item.avatar_url} alt="Card image cap"/>
+                    <a id="myBlog" href={this.state.item.html_url} className="btn btn-success">MyGithub</a>
+                </div>
+            );
+        }
+    }
+    ReactDOM.render(
+        <div className="row">
+            <div className="card">
+                <Card />
+            </div>
+        </div>,
+        document.querySelector("#myGitHubLink")
+    )
+    
+    
+</script>
+
+</html>
