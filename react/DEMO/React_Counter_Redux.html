@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Counter Example</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 接收React Counter -->
+    </div>
+    <script type="text/babel">
+
+        class Counter extends React.Component {
+            constructor(props){
+                super(props);
+                this.state = store.getState();
+            }
+            
+            increment = () => {
+                // this.setState({
+                // count: this.state.count + 1
+                // });
+                store.dispatch({
+                    type:"PLUS"
+                });
+            }
+            decrement = () => {
+                // this.setState({
+                // count: this.state.count - 1
+                // });
+                store.dispatch({
+                    type:"SUB"
+                });
+            }
+
+            handler = function () {
+                // 一但狀態有變化,就會被呼叫
+                let stCount = store.getState().count;
+                console.log("3.Handler..." + stCount);
+                // store = store.getState();
+                // document.getElementById("myCount").innerHTML = stCount;
+                this.setState(store.getState());
+            };
+
+            componentDidMount(){
+                this.unsubscribe = store.subscribe(this.handler.bind(this));
+            }
+
+            componentWillUnmount(){
+                this.unsubscribe();
+            }
+            
+            render() {
+                return (
+                <div>
+                    <h2>(Redux)Counter</h2>
+                    <div>
+                    <button onClick={this.decrement.bind(this)}>-</button>
+                    <span id="myCount">{this.state.count}</span>
+                    <button onClick={this.increment.bind(this)}>+</button>
+                    </div>
+                </div>
+                )
+            }
+        }
+        
+        let store;
+        let reducer = function (state /*目前狀態物件*/, Action /*接受到的行動物件 */) {
+            // 無論狀態是否改變,都[一定要回傳]新的狀態物件,新的狀態物件會[完全取代]舊的狀態物件
+            console.log("2.Reducer..." + Action.type + ":" + state.count);
+            // console.log(state.count + 1);
+            switch (Action.type) {
+                case "PLUS":
+                    return {count: state.count + 1};
+                case "SUB":
+                    return {count: state.count - 1};
+                default:
+                    return state;
+            }
+            
+        };
+        window.addEventListener("load",()=>{
+            // 開始繪製畫面 ReactDOM
+            console.log("(window/load ->ReactDOM開始繪製");
+            store = Redux.createStore(reducer, { count: 40 });
+            var app = document.getElementById("root");
+            ReactDOM.render(
+                <Counter/>,
+                app
+            );
+        });
+        
+    </script>
+</body>
+
+</html>
